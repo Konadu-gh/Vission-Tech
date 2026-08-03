@@ -1,5 +1,5 @@
 # Vission-Tech
-Is an website created to help build tech and provide a Wi-Fi zones for <!DOCTYPE html>
+Is an website created to help build tech and provide a Wi-Fi zones for <!konadu html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
