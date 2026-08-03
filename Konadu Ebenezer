@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VISSION TECH GH - Laptops, Printing & WiFi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="VISSION TECH GH Logo" class="logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>VISSION TECH GH</h1>
+    <p>Your Trusted Tech Partner in Accra</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Laptops</h3>
+        <p>Sales, Repairs, and Accessories for all brands</p>
+      </div>
+      <div class="card">
+        <h3>Printing</h3>
+        <p>High quality printing, photocopy & scanning</p>
+      </div>
+      <div class="card">
+        <h3>Wi-Fi Services</h3>
+        <p>Internet setup, troubleshooting & sales</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Location: Accra, Greater Accra Region, GH</p>
+    <p>📞 Call/WhatsApp: [Add your number]</p>
+    <p>📧 Email: [Add your email]</p>
+  </section>
+
+  <footer>
+    <p>© 2026 VISSION TECH GH. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
