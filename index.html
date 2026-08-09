@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vission Tech GH - Tech, Printing & Branding</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #FFF0F5; color: #333; line-height: 1.6; }
+   .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* HEADER */
+    header { background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(255,20,147,0.1); position: sticky; top: 0; z-index: 1000; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+   .logo { font-size: 1.8rem; font-weight: bold; color: #FF1493; }
+   .nav-links { display: flex; gap: 25px; list-style: none; }
+   .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+   .nav-links a:hover { color: #FF1493; }
+    
+    /* BANNER */
+   .hero { background: url('banner.png') center/cover no-repeat; height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+   .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,20,147,0.6); }
+   .hero-content { position: relative; z-index: 2; }
+   .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+   .hero p { font-size: 1.3rem; margin-bottom: 25px; }
+   .btn-primary { background: white; color: #FF1493; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; display: inline-block; }
+   .btn-primary:hover { transform: scale(1.05); }
+    
+    /* SECTIONS */
+    section { padding: 60px 0; }
+    h2 { text-align: center; font-size: 2.5rem; color: #FF1493; margin-bottom: 40px; }
+    
+    /* SERVICES */
+   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+   .card { background: white; padding: 30px; border-radius: 18px; text-align: center; box-shadow: 0 8px 25px rgba(255,105,180,0.12); transition: 0.3s; }
+   .card:hover { transform: translateY(-8px); }
+   .card h3 { color: #FF1493; margin-bottom: 10px; font-size: 1.4rem; }
+    
+    /* CLICKABLE GALLERY */
+   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+   .gallery-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+   .gallery-item:hover { transform: translateY(-5px); }
+   .gallery-item img { width: 100%; height: 220px; object-fit: cover; }
+   .gallery-item.info { padding: 20px; text-align: center; }
+   .gallery-item h4 { color: #FF1493; font-size: 1.3rem; margin-bottom: 5px; }
+    
+    /* MODAL POPUP */
+   .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); overflow: auto; }
+   .modal-content { background: white; margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 700px; position: relative; }
+   .close { color: #FF1493; float: right; font-size: 35px; font-weight: bold; cursor: pointer; }
+   .close:hover { color: #C2185B; }
+   .price-list { margin-top: 20px; }
+   .price-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #FFF0F5; font-size: 1.1rem; }
+   .price-item b { color: #FF1493; }
+    
+    /* CONTACT */
+   .contact { background: white; border-radius: 20px; padding: 40px; text-align: center; }
+    footer { background: #333; color: white; text-align: center; padding: 25px 0; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <div class="logo">Vission Tech GH</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Your One-Stop Tech & Printing Hub</h1>
+      <p>Laptops, Accessories, Starlink, Printing & Branding in Accra</p>
+      <a href="https://wa.me/233537832845" class="btn-primary">Order on WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="container" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card"><h3>💻 Tech Sales</h3><p>Laptops, Phones, AirPods, Chargers & Accessories</p></div>
+      <div class="card"><h3>🖨️ Printing</h3><p>Flyers, Business Cards, Banners, T-Shirt Printing</p></div>
+      <div class="card"><h3>📡 Starlink</h3><p>Sales, Installation & Setup for Home & Business</p></div>
+      <div class="card"><h3>🎨 Branding</h3><p>CV Writing, Logo Design, Social Media Branding</p></div>
+    </div>
+  </section>
+
+  <section class="container" id="products">
+    <h2>Products Available</h2>
+    <div class="gallery">
+      
+      <div class="gallery-item" onclick="openModal('laptops')">
+        <img src="laptop.png" alt="Laptop">
+        <div class="info"><h4>Laptops</h4><p>Click to see models & prices</p></div>
+      </div>
+
+      <div class="gallery-item" onclick="openModal('airpods')">
+        <img src="airpods.png" alt="AirPods">
+        <div class="info"><h4>AirPods & Earphones</h4><p>Click to see models & prices</p></div>
+      </div>
+
+      <div class="gallery-item" onclick="openModal('chargers')">
+        <img src="charger.png" alt="Charger">
+        <div class="info"><h4>Chargers & Cables</h4><p>Click to see models & prices</p></div>
+      </div>
+
+      <div class="gallery-item" onclick="openModal('accessories')">
+        <img src="accessories.png" alt="Accessories">
+        <div class="info"><h4>Tech Accessories</h4><p>Click to see models & prices</p></div>
+      </div>
+
+      <div class="gallery-item" onclick="openModal('starlink')">
+        <img src="starlink1.png" alt="Starlink">
+        <div class="info"><h4>Starlink</h4><p>Click to see packages & prices</p></div>
+      </div>
+
+      <div class="gallery-item" onclick="openModal('printing')">
+        <img src="starlink2.png" alt="Printing">
+        <div class="info"><h4>Printing & Branding</h4><p>Click to see services & prices</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POPUP MODAL -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <section class="container" id="contact">
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p><b>WhatsApp:</b> 0537832845</p>
+      <p><b>Location:</b> Accra, Ghana</p>
+      <a href="https://wa.me/233537832845" class="btn-primary" style="margin-top:20px;">Chat Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Vission Tech GH. All Rights Reserved.</p>
+  </footer>
+
+<script>
+const products = {
+  laptops: {
+    title: "💻 Laptops Available",
+    items: [
+      ["HP EliteBook i5 8GB RAM", "GHS 4,200"],
+      ["Dell Latitude i7 16GB RAM", "GHS 5,800"],
+      ["MacBook Air M1 256GB", "GHS 7,500"],
+      ["Brand New Lenovo i3", "GHS 3,500"]
+    ]
+  },
+  airpods: {
+    title: "🎧 AirPods & Earphones",
+    items: [
+      ["AirPods Pro 2nd Gen", "GHS 950"],
+      ["AirPods 3rd Gen", "GHS 700"],
+      ["Wireless Earbuds", "GHS 250"],
+      ["Gaming Headphones", "GHS 400"]
+    ]
+  },
+  chargers: {
+    title: "🔌 Chargers & Cables",
+    items: [
+      ["3-in-1 Wireless Charger", "GHS 350"],
+      ["65W Fast Charger", "GHS 180"],
+      ["USB-C to Lightning Cable", "GHS 80"],
+      ["Power Bank 20000mAh", "GHS 300"]
+    ]
+  },
+  accessories: {
+    title: "⌚ Tech Accessories",
+    items: [
+      ["Smart Watch Series 9", "GHS 1,200"],
+      ["Bluetooth Speaker", "GHS 450"],
+      ["Wireless Keyboard + Mouse", "GHS 280"],
+      ["Webcam 1080p", "GHS 350"]
+    ]
+  },
+  starlink: {
+    title: "📡 Starlink Packages",
+    items: [
+      ["Starlink Kit + Setup", "GHS 8,500"],
+      ["Monthly Subscription", "GHS 450"],
+      ["Professional Installation", "GHS 800"],
+      ["Business Package", "GHS 1,200/month"]
+    ]
+  },
+  printing: {
+    title: "🖨️ Printing & Branding",
+    items: [
+      ["1000 Flyers A5", "GHS 400"],
+      ["100 Business Cards", "GHS 150"],
+      ["Custom T-Shirt Print", "GHS 80 each"],
+      ["Banner 3x6ft", "GHS 250"]
+    ]
+  }
+};
+
+function openModal(category) {
+  const modal = document.getElementById('productModal');
+  const body = document.getElementById('modal-body');
+  const data = products[category];
+  
+  let html = `<h2 style="color:#FF1493; margin-bottom:20px;">${data.title}</h2><div class="price-list">`;
+  data.items.forEach(item => {
+    html += `<div class="price-item"><span>${item[0]}</span><b>${item[1]}</b></div>`;
+  });
+  html += `</div><p style="margin-top:25px; text-align:center;"><a href="https://wa.me/233537832845" class="btn-primary">Order on WhatsApp</a></p>`;
+  
+  body.innerHTML = html;
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('productModal').style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById('productModal');
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
