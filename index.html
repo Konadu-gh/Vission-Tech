@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited - Professional Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+  body{background:#0a0a0a;color:#fff}
+  header{background:#111;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #00FF00;position:sticky;top:0;z-index:1000}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:45px;border-radius:50%;border:2px solid #FFD700}
+.brand h1{color:#FFD700;font-size:1.3rem}
+.brand p{color:#00FF00;font-size:0.8rem}
+  nav{background:#1a1a1a;padding:12px 30px;display:flex;gap:30px;border-bottom:1px solid #333;overflow-x:auto}
+  nav a{color:#ccc;text-decoration:none;font-weight:600;padding-bottom:8px;cursor:pointer;white-space:nowrap}
+  nav a.active{color:#00FF00;border-bottom:3px solid #00FF00}
+.page{display:none;padding:30px;max-width:1400px;margin:auto}
+.page.active{display:block}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.company-card{background:#002200;padding:25px;border-radius:14px;border:2px solid #00FF00;cursor:pointer}
+.company-card h3{color:#FFD700;font-size:1.2rem}
+.company-card.purpose{color:#00FF00;font-size:0.9rem;margin:8px 0;font-weight:600}
+.company-card p{color:#aaa;font-size:0.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+.product-card{background:#1a1a1a;padding:15px;border-radius:14px;border:1px solid #333;cursor:pointer}
+.product-card:hover{border-color:#00FF00}
+.product-card img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+.product-card h4{color:#FFD700;margin:12px 0 5px}
+.stock{color:#00FF00;font-size:0.8rem;font-weight:bold}
+.badge{background:#FFD700;color:#000;padding:3px 8px;border-radius:5px;font-size:0.7rem;font-weight:bold;margin-right:5px}
+.news-item{background:#1a1a1a;padding:20px;border-radius:12px;border-left:4px solid #00FF00;margin-bottom:15px}
+.news-item h4{color:#FFD700}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:9999;padding:20px}
+.modal-content{background:#1a1a1a;padding:30px;border-radius:15px;width:100%;max-width:600px;border:2px solid #00FF00;max-height:90vh;overflow-y:auto}
+.close{float:right;font-size:1.8rem;color:#FFD700;cursor:pointer}
+.btn{background:#00FF00;color:#000;padding:12px 25px;border-radius:8px;border:none;font-weight:bold;cursor:pointer;width:100%;margin-top:10px}
+.modal input{width:100%;padding:12px;margin:8px 0;background:#222;border:1px solid #333;border-radius:8px;color:#fff}
+.ingredient-tag{background:#002200;color:#00FF00;padding:5px 10px;border-radius:20px;font-size:0.8rem;display:inline-block;margin:3px}
+.testimonial{background:#1a1a1a;padding:20px;border-radius:12px;border:1px solid #333;margin-bottom:15px}
+.testimonial img{width:50px;height:50px;border-radius:50%;border:2px solid #FFD700}
+.faq-item{background:#1a1a1a;padding:15px;border-radius:10px;margin-bottom:10px;border-left:3px solid #00FF00}
+</style>
+</head>
+<body>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal" style="display:flex">
+  <div class="modal-content">
+    <h2 style="color:#00FF00;text-align:center">Welcome to Eben & Co.</h2>
+    <input type="text" id="fullName" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <input type="password" id="password" placeholder="Create Password">
+    <input type="file" id="profilePic" accept="image/*">
+    <button class="btn" onclick="createAccount()">Create Account</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="Logo">
+    <div>
+      <h1>Eben & Co. Limited</h1>
+      <p>HOLDING COMPANY • ACCRA, GHANA 🇬🇭</p>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a onclick="showPage('dashboard')" class="active">Dashboard</a>
+  <a onclick="showPage('products')">Products</a>
+  <a onclick="showPage('news')">News</a>
+  <a onclick="showPage('testimonials')">Testimonials</a>
+  <a onclick="showPage('gallery')">Gallery</a>
+  <a onclick="showPage('faq')">FAQ</a>
+  <a onclick="showPage('distributor')">Distributor</a>
+  <a onclick="showPage('profile')">Profile</a>
+</nav>
+
+<!-- DASHBOARD + VIDEO ADDED -->
+<div id="dashboard" class="page active">
+  <h2 style="color:#FFD700;margin-bottom:20px">Our Companies</h2>
+  <!-- NEW: VIDEO -->
+  <video controls autoplay muted loop style="width:100%;border-radius:15px;margin-bottom:30px;border:2px solid #00FF00">
+    <source src="company-video.mp4" type="video/mp4">
+  </video>
+  <div class="stats">
+    <div class="company-card"><h3>Vission Tech Ghana</h3><div class="purpose">Purpose: Software, IoT, IT Services</div><p>Building digital solutions for businesses</p></div>
+    <div class="company-card"><h3>Adepa Natural Soap and Pomade</h3><div class="purpose">Purpose: Natural Beauty & Skincare</div><p>100% organic products made in Ghana</p></div>
+    <div class="company-card"><h3>Eben Logistics</h3><div class="purpose">Purpose: Delivery & Supply Chain</div><p>Fast delivery services nationwide</p></div>
+    <div class="company-card"><h3>Eben Agro</h3><div class="purpose">Purpose: Farming & Export</div><p>Quality agricultural products</p></div>
+  </div>
+</div>
+
+<!-- PRODUCTS + BADGES + STOCK ADDED -->
+<div id="products" class="page">
+  <h2 style="color:#FFD700;margin-bottom:20px">Adepa Natural Products</h2>
+  <div style="margin-bottom:20px"><span class="badge">FDA APPROVED</span><span class="badge">MADE IN GHANA</span><span class="badge">100% NATURAL</span></div>
+  <div class="grid" id="productGrid"></div>
+</div>
+
+<!-- NEWS -->
+<div id="news" class="page"><h2 style="color:#FFD700;margin-bottom:20px">Company News & Updates</h2><div id="newsList"></div></div>
+
+<!-- NEW: TESTIMONIALS -->
+<div id="testimonials" class="page">
+  <h2 style="color:#FFD700;margin-bottom:20px">What Our Customers Say</h2>
+  <div class="testimonial"><div style="display:flex;gap:15px;align-items:center"><img src="customer1.jpg"><div><h4 style="color:#FFD700">Ama Serwaa - Accra</h4><p>“Beru Soap cleared my dark spots in 3 weeks. Best natural soap in Ghana!”</p></div></div></div>
+  <div class="testimonial"><div style="display:flex;gap:15px;align-items:center"><img src="customer2.jpg"><div><h4 style="color:#FFD700">Kwame Boateng - Kumasi</h4><p>“Shea Pomade stopped my dandruff. My hair is so soft now.”</p></div></div></div>
+  <div class="testimonial"><div style="display:flex;gap:15px;align-items:center"><img src="customer3.jpg"><div><h4 style="color:#FFD700">Fatima Iddrisu - Tamale</h4><p>“I’ve tried many products. Adepa is the only one that really works.”</p></div></div></div>
+</div>
+
+<!-- NEW: GALLERY -->
+<div id="gallery" class="page">
+  <h2 style="color:#FFD700;margin-bottom:20px">Behind The Scenes</h2>
+  <div class="grid">
+    <img src="factory1.jpg" style="width:100%;border-radius:12px">
+    <img src="factory2.jpg" style="width:100%;border-radius:12px">
+    <img src="ingredients.jpg" style="width:100%;border-radius:12px">
+    <img src="women-making-soap.jpg" style="width:100%;border-radius:12px">
+  </div>
+</div>
+
+<!-- NEW: FAQ -->
+<div id="faq" class="page">
+  <h2 style="color:#FFD700;margin-bottom:20px">Frequently Asked Questions</h2>
+  <div class="faq-item"><h4 style="color:#FFD700">Is Adepa safe for kids?</h4><p>Yes, all our products are 100% natural and safe for all ages.</p></div>
+  <div class="faq-item"><h4 style="color:#FFD700">How long to see results?</h4><p>Most customers see results in 2-4 weeks with consistent use.</p></div>
+  <div class="faq-item"><h4 style="color:#FFD700">Do you deliver outside Accra?</h4><p>Yes, we deliver nationwide via Eben Logistics.</p></div>
+  <div class="faq-item"><h4 style="color:#FFD700">Are products FDA approved?</h4><p>Yes, all Adepa products are FDA certified and GSA tested.</p></div>
+</div>
+
+<!-- NEW: DISTRIBUTOR FORM -->
+<div id="distributor" class="page">
+  <h2 style="color:#FFD700;margin-bottom:20px">Become a Distributor</h2>
+  <div class="modal-content">
+    <input type="text" placeholder="Full Name">
+    <input type="text" placeholder="Location/City">
+    <input type="tel" placeholder="Phone Number">
+    <input type="number" placeholder="Estimated Capital GHS">
+    <button class="btn">Submit Application</button>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="page">
+  <h2 style="color:#FFD700">My Profile</h2>
+  <div style="background:#1a1a1a;padding:30px;border-radius:15px;text-align:center">
+    <img id="profilePreview" src="profile.jpg" style="width:120px;height:120px;border-radius:50%;border:3px solid #00FF00">
+    <h3 id="profileName" style="color:#FFD700;margin:15px 0"></h3>
+    <p id="profileEmail"></p>
+    <p id="profilePhone"></p>
+  </div>
+</div>
+
+<!-- PRODUCT POPUP -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProduct()">&times;</span>
+    <img id="modalImg">
+    <h2 id="modalTitle" style="color:#FFD700"></h2>
+    <p><b style="color:#00FF00">Made In:</b> <span id="modalMade"></span></p>
+    <p><b style="color:#00FF00">Description:</b> <span id="modalDesc"></span></p>
+    <p><b style="color:#00FF00">Ingredients Used:</b></p>
+    <div id="modalIngredients"></div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {name:"Natural SPF Beru Soap", made:"Kumasi, Ghana", desc:"Handmade soap for glowing skin.", ingredients:["Shea Butter","Neem","Turmeric","Honey"], img:"beru-soap.png", stock:24},
+  {name:"Shea Hair Pomade", made:"Accra, Ghana", desc:"Nourishes scalp and promotes hair growth.", ingredients:["Raw Shea Butter","Coconut Oil","Castor Oil"], img:"shea-pomade.png", stock:18},
+  {name:"Adepa Black Soap", made:"Northern Region, Ghana", desc:"Traditional African black soap.", ingredients:["Plantain Peels","Cocoa Pods","Shea Butter"], img:"black-soap.png", stock:32},
+  {name:"Shea Body Oil", made:"Tamale, Ghana", desc:"Deep moisturizing oil for glowing skin.", ingredients:["Shea Oil","Jojoba Oil","Vitamin E"], img:"body-oil.png", stock:15},
+  {name:"Turmeric Face Cream", made:"Accra, Ghana", desc:"Brightens face and clears dark spots.", ingredients:["Turmeric","Shea Butter","Aloe Vera"], img:"face-cream.png", stock:9}
+];
+const news = [
+  {title:"New Factory Opening in Kumasi", date:"Aug 10, 2026", desc:"Expanding production to meet high demand."},
+  {title:"Adepa Products Now in 5 Supermarkets", date:"Aug 08, 2026", desc:"Find us at Shoprite and Melcom."},
+  {title:"Export Deal Signed with UK", date:"Aug 05, 2026", desc:"First shipment of 2000 Beru Soaps to London."},
+  {title:"Vission Tech Launches New App", date:"Aug 03, 2026", desc:"POS system delivered for 50 shops."},
+  {title:"Eben Agro Record Harvest", date:"Jul 30, 2026", desc:"Record harvest of shea nuts this season."},
+  {title:"Staff Training Completed", date:"Jul 28, 2026", desc:"New quality standards training."},
+  {title:"Partnership with Ghana FDA", date:"Jul 25, 2026", desc:"All products FDA certified."},
+  {title:"New Product: Turmeric Face Cream", date:"Jul 20, 2026", desc:"Newest skincare product launched."},
+  {title:"Eben Logistics Adds 3 New Vans", date:"Jul 18, 2026", desc:"Faster delivery across Ghana."},
+  {title:"Community Shea Training Program", date:"Jul 15, 2026", desc:"Training 100 women in shea processing."}
+];
+
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  event.target.classList.add('active');
+}
+function createAccount(){
+  document.getElementById('loginModal').style.display='none';
+  document.getElementById('profileName').innerText = document.getElementById('fullName').value;
+  document.getElementById('profileEmail').innerText = "📧 " + document.getElementById('email').value;
+  document.getElementById('profilePhone').innerText = "📞 " + document.getElementById('phone').value;
+  const file = document.getElementById('profilePic').files[0];
+  if(file) document.getElementById('profilePreview').src = URL.createObjectURL(file);
+}
+let productHTML = '';
+products.forEach((p,i)=>{
+  productHTML += `
+  <div class="product-card" onclick="openProduct(${i})">
+    <img src="${p.img}">
+    <h4>${p.name}</h4>
+    <p>Made in: ${p.made}</p>
+    <p class="stock">In Stock: ${p.stock} pieces</p>
+  </div>`;
+});
+document.getElementById('productGrid').innerHTML = productHTML;
+let newsHTML = '';
+news.forEach(n=>{newsHTML += `<div class="news-item"><h4>${n.title}</h4><small>${n.date}</small><p>${n.desc}</p></div>`});
+document.getElementById('newsList').innerHTML = newsHTML;
+function openProduct(i){
+  const p = products[i];
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalTitle').innerText = p.name;
+  document.getElementById('modalMade').innerText = p.made;
+  document.getElementById('modalDesc').innerText = p.desc;
+  document.getElementById('modalIngredients').innerHTML = p.ingredients.map(ing=>`<span class="ingredient-tag">${ing}</span>`).join('');
+  document.getElementById('productModal').style.display = 'flex';
+}
+function closeProduct(){document.getElementById('productModal').style.display='none';}
+</script>
+
+</body>
+</html>
