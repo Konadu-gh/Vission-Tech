@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited - Professional Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#0a0a0a;color:#fff}
+header{background:#111;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #00FF00;position:sticky;top:0;z-index:1000}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:50px;border-radius:50%;border:2px solid #FFD700}
+.brand h1{color:#FFD700;font-size:1.4rem}
+.brand p{color:#00FF00;font-size:0.85rem}
+.menu-btn{font-size:1.8rem;color:#00FF00;cursor:pointer;display:none}
+nav{background:#1a1a1a;padding:14px 30px;display:flex;gap:30px;border-bottom:1px solid #333;overflow-x:auto}
+nav a{color:#ccc;text-decoration:none;font-weight:600;padding-bottom:8px;cursor:pointer}
+nav a.active{color:#00FF00;border-bottom:3px solid #00FF00}
+
+.search-bar{padding:20px 30px;background:#1a1a1a}
+.search-bar input{width:100%;padding:12px 20px;border-radius:25px;border:2px solid #00FF00;background:#222;color:#fff}
+
+/* SIDE MENU */
+.side-menu{position:fixed;top:0;right:-100%;width:85%;max-width:380px;height:100%;background:#fff;color:#000;z-index:99999;transition:0.4s;overflow-y:auto;padding:25px}
+.side-menu.active{right:0}
+.side-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99998}
+.side-overlay.active{display:block}
+.close-btn{font-size:2rem;cursor:pointer;float:right;color:#555}
+.side-menu h3{font-size:1.1rem;padding:15px 0;border-bottom:1px solid #eee;cursor:pointer;font-weight:700}
+.dropdown-btn{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #eee;cursor:pointer;font-weight:700}
+.dropdown-content{display:none;padding-left:15px}
+.dropdown-content a{display:block;padding:12px 0;color:#555;text-decoration:none}
+.side-location{margin-top:30px;padding-top:20px;border-top:2px solid #eee;font-weight:700}
+
+/* ABOUT SECTION */
+.about{background:#111;padding:40px;border-radius:15px;margin-bottom:30px;border:2px solid #00FF00}
+.about h2{color:#FFD700;margin-bottom:15px}
+.vm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
+.vm-card{background:#002200;padding:20px;border-radius:12px;border:1px solid #00FF00}
+.vm-card h3{color:#00FF00;margin-bottom:10px}
+
+/* SLIDESHOW */
+.slideshow{position:relative;width:100%;height:500px;border-radius:20px;overflow:hidden;margin-bottom:30px;border:2px solid #00FF00}
+.slide{display:none;width:100%;height:100%;position:absolute}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide.active{display:block;animation:fade 1s}
+@keyframes fade{from{opacity:.4}to{opacity:1}}
+.slide-text{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));padding:30px}
+.slide-text h2{color:#FFD700;font-size:1.8rem}
+.dots{text-align:center;position:absolute;bottom:15px;width:100%}
+.dot{height:12px;width:12px;margin:0 5px;background:#555;border-radius:50%;display:inline-block;cursor:pointer}
+.dot.active{background:#00FF00}
+
+.page{display:none;padding:30px;max-width:1400px;margin:auto}
+.page.active{display:block}
+h2.section-title{color:#FFD700;margin-bottom:25px;font-size:1.8rem}
+
+/* PRODUCT POPUP */
+.product-card{cursor:pointer;background:#1a1a1a;padding:15px;border-radius:14px;border:1px solid #333;transition:0.3s}
+.product-card:hover{border-color:#00FF00;transform:translateY(-5px)}
+.product-card img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);align-items:center;justify-content:center;z-index:9999;padding:20px}
+.modal-content{background:#1a1a1a;padding:30px;border-radius:15px;width:100%;max-width:600px;border:2px solid #00FF00}
+.modal-content img{width:100%;border-radius:10px;margin-bottom:15px}
+.close{float:right;font-size:1.8rem;color:#FFD700;cursor:pointer}
+
+.news-item{background:#1a1a1a;padding:20px;border-radius:12px;border-left:4px solid #00FF00;margin-bottom:15px}
+.testimonial{background:#1a1a1a;padding:20px;border-radius:12px;border:1px solid #333;margin-bottom:15px}
+.footer{background:#000;padding:50px 30px;margin-top:50px;border-top:2px solid #00FF00}
+.footer-title{color:#fff;font-size:1.4rem;font-weight:bold;margin-bottom:10px;text-align:center}
+.footer-line{width:60px;height:3px;background:#FFA500;margin:0 auto 25px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:800px;margin:auto}
+.contact-item{display:flex;align-items:center;gap:15px}
+.contact-item i{color:#FFA500;font-size:1.3rem}
+.btn{background:#00FF00;color:#000;padding:12px 25px;border-radius:8px;border:none;font-weight:bold;cursor:pointer}
+
+@media(max-width:900px){.menu-btn{display:block}nav{display:none}.slideshow{height:300px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="logo.png">
+    <div>
+      <h1>Eben & Co. Limited</h1>
+      <p>HOLDING COMPANY • ACCRA, GHANA 🇬🇭</p>
+    </div>
+  </div>
+  <i class="fas fa-bars menu-btn" onclick="openMenu()"></i>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search products, news, services..." onkeyup="searchAll()">
+</div>
+
+<nav>
+  <a onclick="showPage('dashboard')" class="active">Home</a>
+  <a onclick="showPage('about')">About Us</a>
+  <a onclick="showPage('products')">Products</a>
+  <a onclick="showPage('news')">News</a>
+  <a onclick="showPage('testimonials')">Testimonials</a>
+  <a onclick="showPage('profile')">Contact</a>
+</nav>
+
+<!-- SIDE MENU -->
+<div class="side-overlay" onclick="closeMenu()"></div>
+<div class="side-menu" id="sideMenu">
+  <i class="fas fa-times close-btn" onclick="closeMenu()"></i>
+  <h3 onclick="showPage('dashboard');closeMenu()">Home</h3>
+  <h3 onclick="showPage('about');closeMenu()">About Us</h3>
+  <div class="dropdown-btn" onclick="toggleDrop('explore')">Products <i class="fas fa-chevron-down"></i></div>
+  <div class="dropdown-content" id="explore">
+    <a onclick="showPage('products');closeMenu()">Adepa Natural</a>
+    <a onclick="showPage('products');closeMenu()">Soap Tech Line</a>
+  </div>
+  <h3 onclick="showPage('news');closeMenu()">News</h3>
+  <h3 onclick="showPage('profile');closeMenu()">Contact Us</h3>
+  <div class="side-location">Location: GA-107-4293<br>Accra Ghana</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="page active">
+  <div class="slideshow">
+    <div class="slide active"><img src="slide1.jpg"><div class="slide-text"><h2>Adepa Natural Products</h2><p>100% Organic, Made in Ghana</p></div></div>
+    <div class="slide"><img src="slide2.jpg"><div class="slide-text"><h2>Soap Tech Innovation</h2><p>Technology meets tradition</p></div></div>
+    <div class="slide"><img src="slide3.jpg"><div class="slide-text"><h2>Vission Tech Services</h2><p>CV Writing & Website Development</p></div></div>
+    <div class="dots"><span class="dot active" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div>
+  </div>
+  <h2 class="section-title">Welcome to Eben & Co. Limited</h2>
+  <p style="color:#aaa;line-height:1.8">Eben & Co. Limited is a Ghanaian holding company focused on natural products, technology, logistics and agro. We create jobs, empower women, and deliver quality "Made in Ghana" products to the world.</p>
+</div>
+
+<!-- ABOUT US -->
+<div id="about" class="page">
+  <div class="about">
+    <h2>About Eben & Co. Limited</h2>
+    <p>We are a diversified Ghanaian company committed to producing natural, FDA-approved products and providing tech solutions that impact lives. Founded in Accra, we operate 4 subsidiaries serving thousands of customers.</p>
+
+    <div class="vm-grid">
+      <div class="vm-card">
+        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+        <p>To be Africa's leading brand for natural wellness products and technology solutions, made in Ghana for the world.</p>
+      </div>
+      <div class="vm-card">
+        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+        <p>To produce high-quality, affordable natural products and tech services that empower communities, create jobs, and promote healthy living.</p>
+      </div>
+      <div class="vm-card">
+        <h3><i class="fas fa-handshake"></i> What We Do</h3>
+        <p>• Natural Soap & Skincare Manufacturing<br>• Website & CV Services<br>• Logistics & Distribution<br>• Agro Processing & Export</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="products" class="page">
+  <h2 class="section-title">Adepa Natural Products - Made By Me</h2>
+  <p style="color:#aaa;margin-bottom:20px">All products are handmade by our team and FDA approved</p>
+  <div id="productGrid" class="grid"></div>
+</div>
+
+<!-- PRODUCT POPUP -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="">
+    <h2 id="modalName" style="color:#FFD700"></h2>
+    <p id="modalMade" style="color:#00FF00"></p>
+    <p id="modalDesc"></p>
+    <p><b>Ingredients:</b> <span id="modalIng"></span></p>
+    <p><b>Stock:</b> <span id="modalStock" style="color:#00FF00"></span></p>
+    <button class="btn" onclick="window.open('https://wa.me/233537832845')">Order on WhatsApp</button>
+  </div>
+</div>
+
+<div id="news" class="page"><h2 class="section-title">Latest News</h2><div id="newsList"></div></div>
+<div id="testimonials" class="page"><h2 class="section-title">Customer Testimonials</h2><div id="testimonialList"></div></div>
+<div id="profile" class="page"><h2 class="section-title">Contact CEO</h2><div class="vm-card"><h3>0537832845</h3><p>kunfum125@gmail.com</p><p>Location: GA-107-4293, Accra Ghana</p></div></div>
+
+<footer class="footer">
+  <h3 class="footer-title">Let’s Connect</h3><div class="footer-line"></div>
+  <div class="contact-grid">
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>GA-107-4293, Accra Ghana</span></div>
+    <div class="contact-item"><i class="fas fa-phone"></i><span>0537832845</span></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i><span>kunfum125@gmail.com</span></div>
+  </div>
+</footer>
+
+<script>
+function openMenu(){document.getElementById('sideMenu').classList.add('active');document.querySelector('.side-overlay').classList.add('active')}
+function closeMenu(){document.getElementById('sideMenu').classList.remove('active');document.querySelector('.side-overlay').classList.remove('active')}
+function toggleDrop(id){let el=document.getElementById(id);el.style.display=el.style.display==='block'?'none':'block'}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));document.getElementById(id).classList.add('active');if(event)event.target.classList.add('active')}
+
+// SLIDESHOW
+let slideIndex = 1;showSlides(slideIndex);setInterval(()=>{plusSlides(1)}, 3000);
+function plusSlides(n){showSlides(slideIndex += n)}function currentSlide(n){showSlides(slideIndex = n)}
+function showSlides(n){let slides=document.getElementsByClassName("slide");let dots=document.getElementsByClassName("dot");if(n>slides.length){slideIndex=1}for(let i=0;i<slides.length;i++){slides[i].classList.remove("active");}for(let i=0;i<dots.length;i++){dots[i].classList.remove("active");}slides[slideIndex-1].classList.add("active");dots[slideIndex-1].classList.add("active");}
+
+// PRODUCTS WITH "SOAP TECH" AND "MADE BY ME"
+const products=[
+  {name:"Adepa Soap Tech - Beru Bar",made:"Made by Me in Kumasi, Ghana",desc:"Advanced soap technology for glowing skin. Fades dark spots.",ingredients:["Shea Butter","Neem","Turmeric","Honey"],img:"beru-soap.jpg",stock:24},
+  {name:"Adepa Soap Tech - Black Soap",made:"Made by Me in Tamale, Ghana",desc:"Activated charcoal soap tech for acne treatment.",ingredients:["Plantain Peel","Cocoa Pod","Charcoal"],img:"black-soap.jpg",stock:32},
+  {name:"Shea Hair Pomade",made:"Made by Me in Accra, Ghana",desc:"For hair growth and dandruff.",ingredients:["Shea Butter","Coconut Oil","Castor Oil"],img:"shea-pomade.jpg",stock:18},
+  {name:"Body Nourishing Oil",made:"Made by Me in Accra, Ghana",desc:"24hr moisture lock.",ingredients:["Jojoba Oil","Vitamin E"],img:"body-oil.jpg",stock:15},
+  {name:"Face Glow Cream",made:"Made by Me in Kumasi, Ghana",desc:"Reduces dark spots.",ingredients:["Vitamin C","Aloe Vera"],img:"face-cream.jpg",stock:20},
+  {name:"Herbal Shampoo Bar",made:"Made by Me in Accra, Ghana",desc:"Chemical-free.",ingredients:["Hibiscus","Fenugreek"],img:"shampoo.jpg",stock:12}
+];
+
+const news=[{title:"New Soap Tech Lab Opened",date:"Aug 10, 2026",desc:"We launched our new soap production technology."}];
+const testimonials=[{name:"Ama Serwaa",location:"Accra",text:"The Soap Tech Beru Bar is amazing!",img:"customer1.jpg"}];
+
+let pHTML='';products.forEach((p,i)=>{pHTML+=`<div class="product-card" onclick="openModal(${i})"><img src="${p.img}"><h4 style="color:#FFD700">${p.name}</h4><p style="color:#00FF00;font-size:0.8rem">${p.made}</p><p style="color:#aaa">${p.desc}</p><p style="color:#00FF00">Stock: ${p.stock}</p></div>`});document.getElementById('productGrid').innerHTML=pHTML;
+
+function openModal(i){let p=products[i];document.getElementById('modalImg').src=p.img;document.getElementById('modalName').innerText=p.name;document.getElementById('modalMade').innerText=p.made;document.getElementById('modalDesc').innerText=p.desc;document.getElementById('modalIng').innerText=p.ingredients.join(', ');document.getElementById('modalStock').innerText=p.stock;document.getElementById('productModal').style.display='flex'}
+function closeModal(){document.getElementById('productModal').style.display='none'}
+
+let nHTML='';news.forEach(n=>{nHTML+=`<div class="news-item"><h4 style="color:#FFD700">${n.title}</h4><small>${n.date}</small><p>${n.desc}</p></div>`});document.getElementById('newsList').innerHTML=nHTML;
+let tHTML='';testimonials.forEach(t=>{tHTML+=`<div class="testimonial"><h4 style="color:#FFD700">${t.name}</h4><small>${t.location}</small><p>"${t.text}"</p></div>`});document.getElementById('testimonialList').innerHTML=tHTML;
+
+function searchAll(){let input = document.getElementById('searchInput').value.toLowerCase();document.querySelectorAll('.product-card,.news-item,.testimonial').forEach(el=>{el.style.display = el.innerText.toLowerCase().includes(input)? '' : 'none';})}
+</script>
+</body>
+</html>
