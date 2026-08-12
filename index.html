@@ -20,7 +20,12 @@ nav a.active{color:#00FF00;border-bottom:3px solid #00FF00}
 
 .search-bar{padding:20px 30px;background:#1a1a1a}
 .search-bar input{width:100%;padding:12px 20px;border-radius:25px;border:2px solid #00FF00;background:#222;color:#fff}
-
+main-banner{position:relative;width:100%;height:250px;border-radius:15px;overflow:hidden;margin-bottom:30px;border:2px solid #FFD700}
+.main-banner img{width:100%;height:100%;object-fit:cover}
+.banner-text{position:absolute;top:50%;left:30px;transform:translateY(-50%);background:rgba(0,0,0,0.7);padding:20px;border-radius:10px;max-width:500px}
+.banner-text h2{color:#FFD700;font-size:1.5rem;margin-bottom:8px}
+.banner-text p{color:#fff;margin-bottom:15px}
+@media(max-width:900px){.main-banner{height:200px}.banner-text{left:15px;padding:15px}.banner-text h2{font-size:1.2rem}}
 /* SIDE MENU */
 .side-menu{position:fixed;top:0;right:-100%;width:85%;max-width:380px;height:100%;background:#fff;color:#000;z-index:99999;transition:0.4s;overflow-y:auto;padding:25px}
 .side-menu.active{right:0}
@@ -122,16 +127,27 @@ h2.section-title{color:#FFD700;margin-bottom:25px;font-size:1.8rem}
 
 <!-- DASHBOARD -->
 <div id="dashboard" class="page active">
+  <!-- YOUR EXISTING SLIDESHOW -->
   <div class="slideshow">
     <div class="slide active"><img src="slide1.jpg"><div class="slide-text"><h2>Adepa Natural Products</h2><p>100% Organic, Made in Ghana</p></div></div>
     <div class="slide"><img src="slide2.jpg"><div class="slide-text"><h2>Soap Tech Innovation</h2><p>Technology meets tradition</p></div></div>
     <div class="slide"><img src="slide3.jpg"><div class="slide-text"><h2>Vission Tech Services</h2><p>CV Writing & Website Development</p></div></div>
     <div class="dots"><span class="dot active" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div>
   </div>
-  <h2 class="section-title">Welcome to Eben & Co. Limited</h2>
-  <p style="color:#aaa;line-height:1.8">Eben & Co. Limited is a Ghanaian holding company focused on natural products, technology, logistics and agro. We create jobs, empower women, and deliver quality "Made in Ghana" products to the world.</p>
-</div>
 
+  <!-- NEW BANNER ADDED HERE -->
+  <div class="main-banner">
+    <img src="banner1.jpg">
+    <div class="banner-text">
+      <h2>New Soap Tech Formula Launched!</h2>
+      <p>20% OFF All Adepa Products This Month. Made By Me in Ghana.</p>
+      <button class="btn" onclick="showPage('products')">Shop Now</button>
+    </div>
+  </div>
+
+  <h2 class="section-title">Welcome to Eben & Co. Limited</h2>
+  <p style="color:#aaa;line-height:1.8">Eben & Co. Limited is a Ghanaian holding company focused on natural products, technology, logistics and agro...</p>
+</div>
 <!-- ABOUT US -->
 <div id="about" class="page">
   <div class="about">
