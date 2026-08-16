@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited - Made in Ghana Holding Company</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--lightgreen:#90EE90;--black:#000;--white:#ffffff;--gray:#f8f8f8;--darkgray:#111111;--gold:#FFD700}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--black);line-height:1.6}
+.top-header{background:var(--white);padding:12px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--lightgreen);position:sticky;top:0;z-index:1000}
+.menu-btn{font-size:1.6rem;cursor:pointer;color:var(--black)}
+.brand-area{display:flex;align-items:center;gap:12px}
+.brand-area img{width:50px;height:50px;border-radius:50%;border:2px solid var(--lightgreen)}
+.brand-area h1{font-size:1.4rem;font-weight:900;color:var(--black)}
+.brand-area h1 span{color:var(--lightgreen)}
+.search-bar{flex:1;max-width:450px;margin:0 20px;background:var(--gray);border-radius:25px;padding:10px 18px;display:flex;gap:10px;align-items:center}
+.search-bar input{border:none;background:transparent;outline:none;width:100%;font-size:0.95rem}
+.btn-account{background:var(--lightgreen);color:var(--black);padding:10px 22px;border-radius:25px;border:none;font-weight:800;cursor:pointer;transition:0.3s}
+.btn-account:hover{background:#7CFC00}
+.ad-board{background:var(--black);color:var(--lightgreen);padding:10px 0;overflow:hidden;border-bottom:3px solid var(--gold)}
+.marquee{white-space:nowrap;display:inline-block;animation:scroll 25s linear infinite;font-weight:700;font-size:0.95rem}
+@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+#sideMenu{position:fixed;top:0;left:-350px;width:330px;height:100%;background:var(--white);z-index:2000;transition:0.4s;box-shadow:2px 0 30px rgba(0,0,0,0.15);padding:30px 25px;overflow-y:auto}
+#sideMenu.active{left:0}
+.close-menu{position:absolute;top:20px;right:20px;font-size:1.8rem;cursor:pointer;color:#999}
+.side-menu-list{margin-top:50px}
+.side-menu-list a{display:block;padding:15px 0;font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none;border-bottom:1px solid #f0f0f0}
+.side-menu-list a i{float:right;margin-top:4px;transition:0.3s}
+.dropdown{display:none;padding-left:15px;background:var(--gray);border-radius:8px;margin:5px 0}
+.dropdown a{font-weight:500;font-size:0.95rem;padding:10px 0;border:none}
+.location-info{margin-top:30px;padding-top:20px;border-top:2px solid var(--lightgreen)}
+.location-info b{font-size:1rem;color:var(--black)}
+.social-icons{display:flex;gap:15px;margin-top:15px}
+.social-icons a{color:#666;font-size:1.4rem;transition:0.3s}
+.social-icons a:hover{color:var(--lightgreen)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1999;display:none}
+.overlay.active{display:block}
+.hero-slider{position:relative;height:75vh;overflow:hidden}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1.2s ease-in-out}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%)}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8),rgba(0,0,0,0.3))}
+.slide-content{position:absolute;top:50%;left:6%;transform:translateY(-50%);color:var(--white);max-width:650px}
+.slide-content h1{font-size:3.8rem;font-weight:900;line-height:1.1;margin-bottom:18px;text-transform:uppercase}
+.slide-content p{font-size:1.15rem;margin-bottom:25px;color:#ddd}
+.btn-primary{background:var(--lightgreen);color:var(--black);padding:15px 35px;border-radius:8px;text-decoration:none;font-weight:800;display:inline-block;transition:0.3s}
+.btn-primary:hover{background:#7CFC00;transform:translateY(-2px)}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);color:var(--white);border:2px solid var(--white);width:55px;height:55px;border-radius:50%;cursor:pointer;font-size:1.3rem;backdrop-filter:blur(5px)}
+.prev{left:25px}.next{right:25px}
+section{padding:90px 5%}
+.section-title{font-size:2.6rem;font-weight:900;margin-bottom:50px;text-align:center;text-transform:uppercase;letter-spacing:1px}
+.section-title:after{content:'';display:block;width:120px;height:4px;background:var(--lightgreen);margin:20px auto 0}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:18px}
+.showcase-item{position:relative;border-radius:14px;overflow:hidden;cursor:pointer}
+.showcase-item.big{grid-row:span 2}
+.showcase-item img{width:100%;height:100%;object-fit:cover;transition:0.5s}
+.showcase-item:hover img{transform:scale(1.08)}
+.showcase-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent)}
+.showcase-content{position:absolute;bottom:25px;left:25px;color:var(--white)}
+.showcase-content h3{font-size:1.5rem;font-weight:900;margin-bottom:8px;text-transform:uppercase}
+.showcase-content p{font-size:0.95rem;opacity:0.9}
+.companies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.company-card{background:var(--gray);border:2px solid var(--lightgreen);border-radius:18px;padding:35px;transition:0.3s}
+.company-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(144,238,144,0.2)}
+.company-card i{font-size:3.5rem;color:var(--lightgreen);margin-bottom:18px}
+.company-card h3{font-size:1.4rem;font-weight:800;margin-bottom:15px}
+.company-card p{color:#555;text-align:justify}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:25px}
+.product-card{background:var(--white);border:1px solid #e0e0e0;border-radius:14px;padding:18px;transition:0.3s}
+.product-card:hover{border-color:var(--lightgreen);box-shadow:0 8px 25px rgba(0,0,0,0.08)}
+.product-card img{width:100%;height:240px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+.product-card h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.product-card.price{color:var(--lightgreen);font-weight:900;font-size:1.2rem;margin-bottom:8px}
+.product-card.desc{color:#666;font-size:0.9rem;line-height:1.7;margin-bottom:15px;min-height:85px}
+.btn-order{background:var(--black);color:var(--white);padding:12px;border-radius:8px;text-decoration:none;text-align:center;display:block;font-weight:700;transition:0.3s}
+.btn-order:hover{background:var(--lightgreen);color:var(--black)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{background:var(--white);border:1px solid #eee;border-radius:14px;padding:25px;transition:0.3s}
+.card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.1);transform:translateY(-5px)}
+.card-icon{font-size:3rem;color:var(--lightgreen);margin-bottom:15px}
+.card h3{font-size:1.2rem;font-weight:800;margin-bottom:10px}
+.card p{color:#666;line-height:1.7}
+.testimonial-card{border-left:5px solid var(--lightgreen);background:var(--gray)}
+.stars{color:var(--gold);margin-bottom:12px;font-size:1.1rem}
+.author{font-weight:800;margin-top:12px;color:var(--black)}
+.faq-card{cursor:pointer;background:var(--gray)}
+.faq-card h3{display:flex;justify-content:space-between;align-items:center}
+.faq-answer{display:none;margin-top:12px;color:#555;line-height:1.7}
+#authModal{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:5000;display:none;align-items:center;justify-content:center;padding:20px}
+.auth-box{background:var(--white);border-radius:14px;padding:40px;max-width:430px;width:100%;border:3px solid var(--lightgreen)}
+.auth-header{display:flex;justify-content:space-between;margin-bottom:25px}
+.auth-header h2{font-size:1.8rem;font-weight:900}
+.close-auth{font-size:1.6rem;cursor:pointer;background:var(--black);color:var(--white);width:35px;height:35px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.btn-login{width:100%;background:var(--black);color:var(--white);padding:15px;border:none;border-radius:8px;font-weight:800;font-size:1rem;cursor:pointer}
+footer{background:var(--darkgray);color:var(--white);padding:60px 5% 30px;text-align:center}
+footer p{color:#aaa}
+@media(max-width:900px){.showcase-grid{grid-template-columns:repeat(2,1fr)}.search-bar{display:none}}
+@media(max-width:600px){.showcase-grid{grid-template-columns:1fr}.slide-content h1{font-size:2.2rem}.hero-slider{height:60vh}}
+</style>
+</head>
+<body>
+
+<div class="top-header">
+<i class="fas fa-bars menu-btn" onclick="openMenu()"></i>
+<div class="brand-area">
+<img src="images/logo.png" onerror="this.src='https://via.placeholder.com/50'">
+<h1>EBEN<span>&CO</span> LTD</h1>
+</div>
+<div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search products, services..."></div>
+<button class="btn-account" onclick="openAuth()">My Account</button>
+</div>
+
+<div class="ad-board">
+<div class="marquee">
+🔥 FREE DELIVERY ON ORDERS ABOVE GHS 200 | 🇬🇭 100% MADE IN GHANA PRODUCTS | 📦 NATIONWIDE DELIVERY WITH EBEN LOGISTICS | 🌿 NEW ADEPA SHEA BUTTER NOW AVAILABLE | 💻 GET 20% OFF WEBSITE DESIGN FROM VISSION TECH |
+</div>
+</div>
+
+<div id="sideMenu">
+<i class="fas fa-times close-menu" onclick="closeMenu()"></i>
+<div class="side-menu-list">
+<a href="#dashboard">Home</a>
+<a href="#" onclick="toggleDrop('explore')"><i class="fas fa-chevron-down"></i>Explore Eben & Co</a>
+<div class="dropdown" id="explore"><a href="#companies">Our Companies</a><a href="#products">Products</a><a href="#showcase">Solutions</a></div>
+<a href="#" onclick="toggleDrop('media')"><i class="fas fa-chevron-down"></i>Media</a>
+<div class="dropdown" id="media"><a href="#meme">Memes</a><a href="#designs">Designs</a><a href="#news">News</a></div>
+<a href="#faq">FAQs</a>
+<a href="#" onclick="toggleDrop('resources')"><i class="fas fa-chevron-down"></i>Resources</a>
+<div class="dropdown" id="resources"><a href="#">Product Catalog</a><a href="#">Price List</a><a href="#">Brochure</a></div>
+<a href="#technology">Technology & AI</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact">Contact Us</a>
+<div class="location-info">
+<b>Location:</b> Accra, Greater Accra Region<br>
+<small>GA-107-4293, Ghana</small>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/233537832845"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="hero-slider" id="dashboard">
+<div class="slide active">
+<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>Responsible Natural<br>Production &<br>Innovation</h1>
+<p>Made in Ghana. Trusted worldwide. 4 companies, one vision.</p>
+<a href="#products" class="btn-primary">Shop Adepa Products</a>
+</div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>Delivering Logistics<br>Solutions Like<br>Never Before</h1>
+<p>Same-day delivery in Accra. Nationwide coverage.</p>
+<a href="#technology" class="btn-primary">Track Shipment</a>
+</div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>Premium Printing &<br>Digital Solutions</h1>
+<p>Websites, Branding, T-Shirts, Banners. Fast turnaround.</p>
+<a href="#designs" class="btn-primary">Get Quote</a>
+</div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>Export Quality<br>Shea & Agro<br>Products</h1>
+<p>Working with women cooperatives in Northern Ghana.</p>
+<a href="#companies" class="btn-primary">Partner With Us</a>
+</div>
+</div>
+<button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+<button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<section id="showcase">
+<h2 class="section-title">Our Solutions Showcase</h2>
+<div class="showcase-grid">
+<div class="showcase-item big"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Responsible Shea<br>Production</h3><p>Sustainable sourcing and fair trade practices</p></div></div>
+<div class="showcase-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Tech Solutions</h3><p>Vission Tech Printing</p></div></div>
+<div class="showcase-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Natural Skincare</h3><p>Adepa Beauty Products</p></div></div>
+<div class="showcase-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Everybody Deserves<br>To Look Good</h3><p>Organic beauty for all skin types</p></div></div>
+<div class="showcase-item"><img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Business Growth</h3><p>Branding & Digital Services</p></div></div>
+<div class="showcase-item"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600"><div class="showcase-overlay"></div><div class="showcase-content"><h3>Fast Logistics</h3><p>Nationwide Delivery Network</p></div></div>
+</div>
+</section>
+
+<section id="companies">
+<h2 class="section-title">Our 4 Companies</h2>
+<div class="companies-grid">
+<div class="company-card"><i class="fas fa-soap"></i><h3>1. Adepa Natural Products</h3><p>Adepa Natural Products is a leading Ghanaian organic skincare brand dedicated to providing 100% natural and chemical-free products made from authentic Ghanaian shea butter, black soap, moringa oil, and essential oils. We specialize in whitening soaps, turmeric soaps, charcoal soaps, and body lotions. Our products are handcrafted to nourish and glow the skin while supporting local women shea nut collectors in Northern Ghana.</p></div>
+<div class="company-card"><i class="fas fa-print"></i><h3>2. Vission Tech Printing</h3><p>Vission Tech Printing and Media offers premium printing services, graphic design, branding, and website development. We print T-shirts, banners, flyers, business cards, and custom mugs. Beyond printing, we build professional business websites, e-commerce stores, and manage social media advertising for businesses across Ghana. Our mission is to empower SMEs with affordable digital and print solutions.</p></div>
+<div class="company-card"><i class="fas fa-truck"></i><h3>3. Eben Logistics Services</h3><p>Eben Logistics Services provides fast, reliable, and affordable delivery and courier services. We specialize in same-day delivery within Accra, next-day delivery across Ghana, and logistics support for e-commerce businesses. We offer door-to-door delivery, cash on delivery support, parcel tracking, and bulk delivery for businesses. Our riders are trained professionals equipped to handle all package sizes.</p></div>
+<div class="company-card"><i class="fas fa-seedling"></i><h3>4. Eben Agro & Export</h3><p>Eben Agro and Export focuses on sourcing, processing, and exporting high-quality Ghanaian agricultural products, especially raw unrefined shea butter and shea nuts. We work directly with women cooperatives to ensure sustainable sourcing and fair trade practices. Our shea butter is 100% pure, Grade A, and demanded in Europe, USA, and Asia. We provide bulk packaging and export documentation support.</p></div>
+</div>
+</section>
+
+<section id="products" style="background:var(--gray)">
+<h2 class="section-title">12 Premium Adepa Products</h2>
+<div class="products-grid">
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>1. Beru Whitening Soap</h3><div class="price">GHS 35</div><div class="desc">Beru Whitening Soap is formulated with natural kojic acid, shea butter and vitamin E to gently brighten skin tone while removing dark spots. It cleanses deeply without drying and gives you a radiant, even complexion within weeks.</div><a href="https://wa.me/233537832845" class="btn-order">Order on WhatsApp</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>2. African Black Soap</h3><div class="price">GHS 25</div><div class="desc">Traditional African Black Soap made from plantain skins, cocoa pods and shea butter. This antibacterial soap treats acne, eczema and skin irritation. It exfoliates dead skin cells and leaves your skin smooth and glowing.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>3. Raw Shea Butter 500g</h3><div class="price">GHS 50</div><div class="desc">100% pure unrefined Ghanaian shea butter sourced directly from women in Northern Ghana. Rich in vitamins A and E, it moisturizes dry skin, reduces stretch marks, heals scars and provides deep nourishment.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>4. Turmeric Brightening Soap</h3><div class="price">GHS 30</div><div class="desc">Turmeric and honey soap that fights acne, dark spots and uneven skin tone. The anti-inflammatory properties of turmeric reduce redness while honey provides natural hydration for sensitive skin.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>5. Charcoal Detox Soap</h3><div class="price">GHS 28</div><div class="desc">Activated charcoal soap that draws out impurities, dirt and excess oil from deep within pores. Ideal for oily and acne-prone skin. It detoxifies, minimizes pores and prevents breakouts.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>6. Moringa Body Lotion</h3><div class="price">GHS 45</div><div class="desc">Lightweight body lotion infused with moringa oil and shea butter. It deeply hydrates for 24 hours, improves skin elasticity and protects against environmental damage. Absorbs quickly.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>7. Beard Growth Oil</h3><div class="price">GHS 40</div><div class="desc">Natural beard oil with castor oil, jojoba and peppermint. Stimulates hair follicles for thicker, fuller beard growth while moisturizing skin underneath. Eliminates itchiness and dandruff.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>8. Neem & Tea Tree Soap</h3><div class="price">GHS 32</div><div class="desc">Antibacterial soap combining neem and tea tree oil to fight acne-causing bacteria and fungal infections. It soothes inflammation, controls oil production and prevents future breakouts.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>9. Cocoa Butter Pomade</h3><div class="price">GHS 38</div><div class="desc">Rich cocoa butter pomade that deeply nourishes dry and cracked skin. Packed with antioxidants, it repairs skin barrier, reduces wrinkles and provides intense moisture for elbows and heels.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>10. Papaya Exfoliating Soap</h3><div class="price">GHS 30</div><div class="desc">Papaya enzyme soap that gently exfoliates dead skin cells and promotes cell renewal. It fades dark spots, hyperpigmentation and sun damage. Leaves skin brighter and more youthful.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>11. Baobab Face Serum</h3><div class="price">GHS 65</div><div class="desc">Concentrated baobab oil serum rich in omega fatty acids and vitamin C. It boosts collagen, firms skin and reduces fine lines. A few drops daily restore radiance and improve texture.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/290"><h3>12. Coconut Hair Butter</h3><div class="price">GHS 42</div><div class="desc">Nourishing hair butter made with coconut oil and shea butter. It repairs damaged hair, prevents breakage, adds shine and promotes growth. Use as leave-in conditioner or deep treatment.</div><a href="https://wa.me/233537832845" class="btn-order">Order</a></div>
+</div>
+</section>
+
+<section id="meme">
+<h2 class="section-title">😂 Skincare Memes</h2>
+<div class="card-grid">
+<div class="card"><img src="https://via.placeholder.com/280x200/90EE90/000?text=Glow+Up" style="width:100%;border-radius:8px;margin-bottom:12px"><h3>That Glow Hits Different</h3><p>POV: You used Adepa Black Soap for 1 week and now everyone is asking for your skincare routine.</p></div>
+<div class="card"><img src="https://via.placeholder.com/280x200/000/90EE90?text=Shea+Butter" style="width:100%;border-radius:8px;margin-bottom:12px"><h3>Shea Butter is Life</h3><p>Me: *puts shea butter on everything* Also me: Why is my skin glowing like this?</p></div>
+<div class="card"><img src="https://via.placeholder.com/280x200/90EE90/000?text=Before+After" style="width:100%;border-radius:8px;margin-bottom:12px"><h3>Before vs After</h3><p>2 weeks with Adepa products and the results speak for themselves. No filter needed.</p></div>
+</div>
+</section>
+
+<section id="technology" style="background:var(--gray)">
+<h2 class="section-title">Technology & AI</h2>
+<div class="card-grid">
+<div class="card"><div class="card-icon"><i class="fas fa-robot"></i></div><h3>AI Skin Analysis</h3><p>Our AI technology analyzes your skin type and recommends the perfect Adepa products tailored specifically for your needs and concerns.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-microchip"></i></div><h3>Smart Inventory</h3><p>Technology-powered stock management ensures you never miss your favorite products. Get notified when items are back in stock.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-truck-fast"></i></div><h3>Logistics Technology</h3><p>Eben Logistics uses GPS tracking and route optimization to ensure your orders arrive fast and on time anywhere in Ghana.</p></div>
+</div>
+</section>
+
+<section id="designs">
+<h2 class="section-title">Our Designs</h2>
+<div class="card-grid">
+<div class="card"><img src="https://via.placeholder.com/280"><h3>Packaging Design</h3><p>Modern eco-friendly packaging for all Adepa products. Made in Ghana, designed to compete globally with premium aesthetics.</p></div>
+<div class="card"><img src="https://via.placeholder.com/280"><h3>Brand Identity</h3><p>Clean, minimal and professional brand design that represents Made in Ghana excellence and trust.</p></div>
+<div class="card"><img src="https://via.placeholder.com/280"><h3>Website UI/UX</h3><p>User-friendly e-commerce design built by Vission Tech for seamless shopping experience across all devices.</p></div>
+</div>
+</section>
+
+<section id="testimonials" style="background:var(--gray)">
+<h2 class="section-title">Customer Testimonials</h2>
+<div class="card-grid">
+<div class="card testimonial-card"><div class="stars">⭐</div><p>"Adepa Black Soap cleared my acne in 3 weeks. This is the best natural product I have ever used in Ghana. My skin has never looked better."</p><div class="author">- Ama S., Accra</div></div>
+<div class="card testimonial-card"><div class="stars">⭐⭐</div><p>"Vission Tech built my business website and it looks amazing. Professional team, fast delivery and very affordable pricing. Highly recommend."</p><div class="author">- Kofi B., Kumasi</div></div>
+<div class="card testimonial-card"><div class="stars">⭐⭐⭐</div><p>"Eben Logistics delivered my bulk order to Tamale in 24 hours. Fast, reliable and the packaging was perfect. They are my go-to delivery service."</p><div class="author">- Grace M., Tamale</div></div>
+</div>
+</section>
+
+<section id="faq">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<div class="card-grid">
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>Do you deliver outside Accra? <i class="fas fa-plus"></i></h3><div class="faq-answer">Yes, we deliver nationwide through Eben Logistics and also offer international shipping for bulk export orders. Delivery takes 1-3 business days.</div></div>
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>Are your products 100% natural? <i class="fas fa-plus"></i></h3><div class="faq-answer">Yes, all Adepa products are made with organic ingredients sourced from Ghana and contain zero harmful chemicals or preservatives.</div></div>
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>How can I pay for my order? <i class="fas fa-plus"></i></h3><div class="faq-answer">We accept Mobile Money, Bank Transfer and Cash on Delivery within Accra and major cities. For export orders we accept bank transfer and PayPal.</div></div>
+</div>
+</section>
+
+<footer id="contact">
+<p>© 2026 Eben & Co. Limited | Made in Ghana 🇬🇭 | WhatsApp: 053 783 2845 | Email: info@ebenandco.com</p>
+<p style="margin-top:10px;font-size:0.9rem">Adepa Natural | Vission Tech | Eben Logistics | Eben Agro Export</p>
+</footer>
+
+<div id="authModal">
+<div class="auth-box">
+<div class="auth-header"><h2>Log in</h2><span class="close-auth" onclick="closeAuth()">&times;</span></div>
+<p style="text-align:center;margin-bottom:25px">Not a member yet? <a href="#" style="font-weight:800;text-decoration:underline">Register now</a></p>
+<label style="font-size:0.85rem;font-weight:600">EMAIL OR USERNAME</label>
+<input type="text" placeholder="Email or Username" style="width:100%;padding:14px;border:1px solid #ddd;border-radius:8px;margin-bottom:18px">
+<label style="font-size:0.85rem;font-weight:600">PASSWORD</label>
+<input type="password" placeholder="Password" style="width:100%;padding:14px;border:1px solid #ddd;border-radius:8px;margin-bottom:18px">
+<div style="display:flex;gap:8px;margin-bottom:25px"><input type="checkbox"> <span>Keep me logged in</span></div>
+<button class="btn-login">Log in now</button>
+</div>
+</div>
+
+<script>
+function openMenu(){document.getElementById('sideMenu').classList.add('active');document.getElementById('overlay').classList.add('active')}
+function closeMenu(){document.getElementById('sideMenu').classList.remove('active');document.getElementById('overlay').classList.remove('active')}
+function toggleDrop(id){const el=document.getElementById(id);el.style.display=el.style.display==='block'?'none':'block'}
+function openAuth(){document.getElementById('authModal').style.display='flex'}
+function closeAuth(){document.getElementById('authModal').style.display='none'}
+function toggleFAQ(el){const ans=el.querySelector('.faq-answer');const icon=el.querySelector('i');ans.style.display=ans.style.display==='block'?'none':'block';icon.classList.toggle('fa-plus');icon.classList.toggle('fa-minus')}
+
+let cur=0;const slides=document.querySelectorAll('.slide');
+function show(n){slides.forEach(s=>s.classList.remove('active'));slides[n].classList.add('active')}
+document.querySelector('.next').onclick=()=>{cur=(cur+1)%slides.length;show(cur)}
+document.querySelector('.prev').onclick=()=>{cur=(cur-1+slides.length)%slides.length;show(cur)}
+setInterval(()=>{cur=(cur+1)%slides.length;show(cur)},5000);
+</script>
+</body>
+</html>
