@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited - Made in Ghana</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--lightgreen:#90EE90;--black:#000;--white:#fff;--gray:#f5f5f5;--darkgray:#111}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--black)}
+
+.top-nav{background:var(--white);padding:15px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;position:sticky;top:0;z-index:1000}
+.logo{font-size:1.5rem;font-weight:800;color:var(--black)}
+.logo span{color:var(--lightgreen)}
+.search-bar{flex:1;max-width:500px;margin:0 20px;background:var(--gray);border-radius:8px;padding:12px 18px;display:flex;gap:10px}
+.search-bar input{border:none;background:transparent;outline:none;width:100%}
+.btn-account{background:var(--lightgreen);color:var(--black);padding:10px 20px;border-radius:6px;border:none;font-weight:700;cursor:pointer}
+
+.hero-slider{position:relative;height:70vh;overflow:hidden}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1.2s}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.6))}
+.slide-content{position:absolute;top:50%;left:5%;transform:translateY(-50%);color:var(--white);max-width:600px}
+.slide-content h1{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:15px}
+.btn-primary{background:var(--lightgreen);color:var(--black);padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:var(--white);border:none;width:50px;height:50px;border-radius:50%;cursor:pointer}
+.prev{left:20px}.next{right:20px}
+
+section{padding:80px 5%}
+.section-title{font-size:2.2rem;font-weight:800;margin-bottom:40px;text-align:center}
+
+/* CARD GRID FOR ALL SECTIONS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{background:var(--white);border:1px solid #eee;border-radius:12px;padding:20px;transition:0.3s}
+.card:hover{box-shadow:0 8px 25px rgba(0,0,0,0.1);transform:translateY(-5px)}
+.card img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:15px}
+.card-icon{font-size:3rem;color:var(--lightgreen);margin-bottom:15px}
+.card h3{font-size:1.2rem;margin-bottom:10px;font-weight:700}
+.card p{color:#666;line-height:1.6;font-size:0.95rem}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.product-card{background:var(--white);border:1px solid #eee;border-radius:12px;padding:15px}
+.product-card img{width:100%;height:250px;object-fit:cover;border-radius:8px}
+.product-card.price{color:var(--lightgreen);font-weight:700}
+.btn-order{background:var(--black);color:var(--white);padding:10px;border-radius:6px;text-decoration:none;text-align:center;display:block;font-weight:600}
+
+/* MEME SECTION */
+.meme-card{text-align:center}
+.meme-card img{height:280px}
+
+/* TESTIMONIAL CARD */
+.testimonial-card{border-left:4px solid var(--lightgreen)}
+.testimonial-card.stars{color:var(--lightgreen);margin-bottom:10px}
+.testimonial-card.author{font-weight:700;margin-top:10px}
+
+/* FAQ CARD */
+.faq-card{cursor:pointer}
+.faq-card.answer{display:none;margin-top:10px;color:#666}
+
+/* LOGIN MODAL */
+#authModal{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:5000;display:none;align-items:center;justify-content:center}
+.auth-box{background:var(--white);border-radius:12px;padding:40px;max-width:420px;width:90%}
+.auth-header{display:flex;justify-content:space-between;margin-bottom:25px}
+.close-auth{font-size:1.5rem;cursor:pointer;background:var(--black);color:var(--white);width:35px;height:35px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.btn-login{width:100%;background:var(--black);color:var(--white);padding:15px;border:none;border-radius:8px;font-weight:700}
+
+footer{background:var(--darkgray);color:var(--white);padding:50px 5%;text-align:center}
+@media(max-width:768px){.search-bar{display:none}.slide-content h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+<div class="logo">EBEN<span>&CO</span></div>
+<div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search by Products"></div>
+<button class="btn-account" onclick="openAuth()">Account</button>
+</div>
+
+<div class="hero-slider">
+<div class="slide active">
+<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>Upgrade to<br>COMPLETE NATURAL<br>SOLUTIONS</h1>
+<a href="#products" class="btn-primary">Shop Now</a>
+</div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1556228578-8c3651240c5c?w=1400">
+<div class="slide-overlay"></div>
+<div class="slide-content">
+<h1>AI + Technology<br>Meets Natural Beauty</h1>
+<a href="#technology" class="btn-primary">Explore</a>
+</div>
+</div>
+<button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+<button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2 class="section-title">12 Premium Products</h2>
+<div class="products-grid">
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Beru Whitening Soap</h3><div class="price">GHS 35</div><p>Natural kojic acid and shea butter to brighten skin tone and remove dark spots. Cleanses deeply without drying.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>African Black Soap</h3><div class="price">GHS 25</div><p>Traditional soap from plantain skins and shea butter. Treats acne, eczema and exfoliates dead skin cells.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Raw Shea Butter 500g</h3><div class="price">GHS 50</div><p>100% pure unrefined Ghanaian shea butter. Rich in vitamins A and E. Moisturizes and heals scars.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Turmeric Brightening Soap</h3><div class="price">GHS 30</div><p>Turmeric and honey soap that fights acne and uneven skin tone. Reduces redness and provides hydration.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Charcoal Detox Soap</h3><div class="price">GHS 28</div><p>Activated charcoal draws out impurities and excess oil. Ideal for oily and acne-prone skin.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Moringa Body Lotion</h3><div class="price">GHS 45</div><p>Lightweight lotion with moringa oil and shea butter. Hydrates for 24 hours and improves elasticity.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Beard Growth Oil</h3><div class="price">GHS 40</div><p>Castor oil, jojoba and peppermint. Stimulates thicker beard growth and eliminates itchiness.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Neem & Tea Tree Soap</h3><div class="price">GHS 32</div><p>Antibacterial soap that fights acne bacteria. Soothes inflammation and controls oil production.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Cocoa Butter Pomade</h3><div class="price">GHS 38</div><p>Deeply nourishes dry skin. Packed with antioxidants. Repairs skin barrier and reduces wrinkles.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Papaya Exfoliating Soap</h3><div class="price">GHS 30</div><p>Papaya enzyme exfoliates dead skin cells. Fades dark spots and promotes cell renewal.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Baobab Face Serum</h3><div class="price">GHS 65</div><p>Baobab oil rich in omega fatty acids and vitamin C. Boosts collagen and reduces fine lines.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+<div class="product-card"><img src="https://via.placeholder.com/280"><h3>Coconut Hair Butter</h3><div class="price">GHS 42</div><p>Coconut oil and shea butter. Repairs damaged hair, prevents breakage and adds shine.</p><a href="https://wa.me/233537832845" class="btn-order">Order Now</a></div>
+</div>
+</section>
+
+<!-- MEME SECTION -->
+<section id="meme" style="background:var(--gray)">
+<h2 class="section-title">😂 Skincare Memes</h2>
+<div class="card-grid">
+<div class="card meme-card"><img src="https://via.placeholder.com/300x280/90EE90/000?text=When+you+use+Black+Soap"><h3>That Glow Hits Different</h3><p>POV: You used Adepa Black Soap for 1 week</p></div>
+<div class="card meme-card"><img src="https://via.placeholder.com/300x280/000/90EE90?text=Shea+Butter+Everywhere"><h3>Shea Butter is Life</h3><p>Me: *puts shea butter on everything* Also me: My skin is glowing</p></div>
+<div class="card meme-card"><img src="https://via.placeholder.com/300x280/90EE90/000?text=Acne+Gone"><h3>Before vs After</h3><p>2 weeks with Adepa products and the results speak</p></div>
+</div>
+</section>
+
+<!-- DESIGNS SECTION -->
+<section id="designs">
+<h2 class="section-title">Our Designs</h2>
+<div class="card-grid">
+<div class="card"><img src="https://via.placeholder.com/300"><h3>Packaging Design</h3><p>Modern eco-friendly packaging for all Adepa products. Made in Ghana, designed for the world.</p></div>
+<div class="card"><img src="https://via.placeholder.com/300"><h3>Brand Identity</h3><p>Clean, minimal and professional brand design that represents Made in Ghana excellence.</p></div>
+<div class="card"><img src="https://via.placeholder.com/300"><h3>Website UI/UX</h3><p>User-friendly e-commerce design built by Vission Tech for seamless shopping experience.</p></div>
+</div>
+</section>
+
+<!-- TECHNOLOGY + AI SECTION -->
+<section id="technology" style="background:var(--gray)">
+<h2 class="section-title">Technology & AI</h2>
+<div class="card-grid">
+<div class="card"><div class="card-icon"><i class="fas fa-robot"></i></div><h3>AI Product Recommendation</h3><p>Our AI analyzes your skin type and recommends the perfect Adepa products for your needs.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-microchip"></i></div><h3>Smart Inventory</h3><p>Technology-powered stock management ensures you never miss your favorite products.</p></div>
+<div class="card"><div class="card-icon"><i class="fas fa-truck-fast"></i></div><h3>Logistics Tech</h3><p>Eben Logistics uses GPS tracking and route optimization for fast nationwide delivery.</p></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS CARDS -->
+<section id="testimonials">
+<h2 class="section-title">What Customers Say</h2>
+<div class="card-grid">
+<div class="card testimonial-card"><div class="stars">⭐</div><p>"Adepa Black Soap cleared my acne in 3 weeks. This is the best natural product I have ever used in Ghana."</p><div class="author">- Ama S., Accra</div></div>
+<div class="card testimonial-card"><div class="stars">⭐</div><p>"Vission Tech built my website and it looks amazing. Professional team and very affordable pricing."</p><div class="author">- Kofi B., Kumasi</div></div>
+<div class="card testimonial-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Eben Logistics delivered to Tamale in 24 hours. Fast, reliable and the packaging was perfect."</p><div class="author">- Grace M., Tamale</div></div>
+</div>
+</section>
+
+<!-- FAQ CARDS -->
+<section id="faq" style="background:var(--gray)">
+<h2 class="section-title">FAQ</h2>
+<div class="card-grid">
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>Do you deliver outside Accra? <i class="fas fa-plus" style="float:right"></i></h3><div class="answer">Yes, we deliver nationwide through Eben Logistics and also offer international shipping for bulk orders.</div></div>
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>Are products 100% natural? <i class="fas fa-plus" style="float:right"></i></h3><div class="answer">Yes, all Adepa products are made with organic ingredients and contain zero harmful chemicals.</div></div>
+<div class="card faq-card" onclick="toggleFAQ(this)"><h3>How can I pay? <i class="fas fa-plus" style="float:right"></i></h3><div class="answer">We accept Mobile Money, Bank Transfer and Cash on Delivery within Accra and major cities.</div></div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Eben & Co. Limited | Made in Ghana 🇬🇭 | WhatsApp: 053 783 2845</p>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div id="authModal">
+<div class="auth-box">
+<div class="auth-header">
+<h2>Log in</h2>
+<span class="close-auth" onclick="closeAuth()">&times;</span>
+</div>
+<div style="text-align:center;margin-bottom:25px">Not a member yet? <a href="#" style="font-weight:700;text-decoration:underline">Register now</a></div>
+<label>EMAIL OR USERNAME</label>
+<input type="text" placeholder="Email or Username" style="width:100%;padding:14px;border:1px solid #ddd;border-radius:6px;margin-bottom:20px">
+<label>PASSWORD</label>
+<input type="password" placeholder="Password" style="width:100%;padding:14px;border:1px solid #ddd;border-radius:6px;margin-bottom:20px">
+<div style="display:flex;gap:8px;margin-bottom:25px"><input type="checkbox"> <span>Keep me logged in</span></div>
+<button class="btn-login">Log in now</button>
+</div>
+</div>
+
+<script>
+function openAuth(){document.getElementById('authModal').style.display='flex'}
+function closeAuth(){document.getElementById('authModal').style.display='none'}
+function toggleFAQ(el){const ans=el.querySelector('.answer');ans.style.display=ans.style.display==='block'?'none':'block'}
+
+let cur=0;const slides=document.querySelectorAll('.slide');
+function show(n){slides.forEach(s=>s.classList.remove('active'));slides[n].classList.add('active')}
+document.querySelector('.next').onclick=()=>{cur=(cur+1)%slides.length;show(cur)}
+document.querySelector('.prev').onclick=()=>{cur=(cur-1+slides.length)%slides.length;show(cur)}
+setInterval(()=>{cur=(cur+1)%slides.length;show(cur)},5000);
+</script>
+</body>
+</html>
