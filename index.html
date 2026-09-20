@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited | Shop, Location & Invest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f8fdf8;color:#222}
+header{background:#0d4a26;color:white;padding:12px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo-circle{width:42px;height:42px;background:#d4af37;color:#0d4a26;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+nav a{color:white;text-decoration:none;margin-left:12px;font-weight:600;font-size:13px}
+.hero{background:linear-gradient(rgba(13,74,38,0.85),rgba(13,74,38,0.6)),url('https://picsum.photos/seed/ebenhero/1200/600');background-size:cover;background-position:center;padding:80px 5%;color:white;text-align:center}
+.btn{padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;margin:5px;font-size:13px}
+.section{padding:40px 5%}
+.section h2{text-align:center;color:#0d4a26;margin-bottom:25px;font-size:28px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:center;padding-bottom:12px;border-top:4px solid #0d4a26}
+.card img{width:100%;height:190px;object-fit:cover;display:block;background:#eee}
+.bamboo-section{background:linear-gradient(135deg,#0d4a26,#1a7a3d);color:white;padding:50px 5%;text-align:center;border-radius:20px;margin:30px 5%}
+.location-box{display:grid;grid-template-columns:1fr 1fr;gap:20px;background:white;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+.map iframe{width:100%;height:300px;border:0;border-radius:10px}
+.buy-btns{display:flex;flex-direction:column;gap:7px;padding:10px 15px}
+.jumia-bar{background:#fff3e0;padding:12px;text-align:center;font-weight:600;position:sticky;top:55px;z-index:999}
+footer{background:#0d4a26;color:white;padding:40px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+footer a{color:#d4af37;text-decoration:none}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none}
+@media(max-width:700px){.location-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo"><div class="logo-circle">E&C</div> EBEN & CO.</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#location">Location</a>
+<a href="#bamboo">Invest</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Eben & Co. Limited</h1>
+<p>Beauty Products | Jumia & Amazon Deals | Bamboo Investment</p>
+<br>
+<a href="#products" class="btn" style="background:#d4af37;color:#0d4a26">Shop Products</a>
+<a href="#bamboo" class="btn" style="background:#00d09c;color:white">Invest with Bamboo 📈</a>
+</section>
+
+<div class="jumia-bar">
+SHOP: 
+<a href="https://www.jumia.com.gh/mlp-top-deals/" target="_blank" style="background:#f68b1e;color:white;padding:6px 12px;border-radius:20px;text-decoration:none">Jumia 🛒</a>
+<a href="https://www.amazon.com/s?k=beauty&tag=eben05-20" target="_blank" style="background:#232f3e;color:white;padding:6px 12px;border-radius:20px;text-decoration:none">Amazon 🌍</a>
+<a href="#bamboo" style="background:#00d09c;color:white;padding:6px 12px;border-radius:20px;text-decoration:none">Bamboo 📈</a>
+</div>
+
+<section class="section" id="products">
+<h2>Our Products + Jumia & Amazon Picks</h2>
+<div class="products" id="productBox"></div>
+</section>
+
+<section class="bamboo-section" id="bamboo">
+<h2 style="font-size:32px">💹 Grow Your Money with Bamboo</h2>
+<p style="max-width:700px;margin:15px auto">Don't just spend - Invest! Turn profit from Eben & Co. into US Stocks like Apple, Tesla, Amazon. Start with GHS 16</p>
+<div style="background:white;color:#0d4a26;padding:18px;border-radius:12px;max-width:480px;margin:20px auto;text-align:left">
+<p>✅ 3,000+ US Stocks</p>
+<p>✅ Start with 200 cedis ( $1 )</p>
+<p>✅ Licensed & Secure - SEC Approved</p>
+<p>✅ Withdraw anytime to MoMo / Bank</p>
+</div>
+<br>
+<a href="https://investbamboo.com/" target="_blank" class="btn" style="background:#00d09c;color:white;padding:14px 28px;font-size:16px">Open Bamboo Website →</a>
+<br><br>
+<a href="https://play.google.com/store/apps/details?id=com.bamboo" target="_blank" class="btn" style="background:black;color:white">Play Store</a>
+<a href="https://apps.apple.com/app/bamboo-invest/id1518367267" target="_blank" class="btn" style="background:black;color:white">App Store</a>
+<p style="font-size:12px;margin-top:15px;opacity:0.8">Clicking takes you directly to Bamboo official app</p>
+</section>
+
+<section class="section" id="location">
+<h2>Our Location</h2>
+<div class="location-box">
+<div class="map">
+<iframe src="https://www.google.com/maps?q=GA-107-4293+Accra+Ghana&z=15&output=embed"></iframe>
+</div>
+<div>
+<h3 style="color:#0d4a26">Eben & Co. Limited</h3>
+<p><strong>Digital Address:</strong> GA-107-4293</p>
+<p><strong>Location:</strong> Accra, Ghana</p>
+<p><strong>Phone:</strong> 0537832845</p>
+<p><strong>Email:</strong> kunfum125@gmail.com</p>
+<br>
+<a href="https://www.google.com/maps/search/GA-107-4293+Accra+Ghana" target="_blank" class="btn" style="background:#0d4a26;color:white">Open Google Maps 📍</a>
+<a href="https://wa.me/233537832845" class="btn" style="background:#25D366;color:white">WhatsApp Directions</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div><h3>Eben & Co.</h3><p>GA-107-4293 Accra</p><p>0537832845</p></div>
+<div><h3>Stores</h3><p><a href="https://www.jumia.com.gh/">Jumia Ghana</a></p><p><a href="https://www.amazon.com/">Amazon</a></p><p><a href="https://investbamboo.com/">Bamboo Invest</a></p></div>
+<div><h3>Quick Links</h3><p><a href="#products">Products</a></p><p><a href="#location">Location</a></p><p><a href="#bamboo">Invest</a></p></div>
+</footer>
+
+<a href="https://wa.me/233537832845" class="whatsapp">W</a>
+
+<script>
+// IMAGES THAT WORK IN GHANA 100% - WITH FALLBACK
+const products=[
+{name:"Beru Black Soap",price:"GHS 25",img:"https://picsum.photos/seed/beru/500/300", jumia:"https://www.jumia.com.gh/catalog/?q=black+soap", amazon:"https://www.amazon.com/s?k=african+black+soap&tag=eben05-20"},
+{name:"Shea Pomade",price:"GHS 35",img:"https://picsum.photos/seed/shea/500/300", jumia:"https://www.jumia.com.gh/catalog/?q=shea+butter", amazon:"https://www.amazon.com/s?k=shea+butter&tag=eben05-20"},
+{name:"Jumia Fashion Deal",price:"From GHS 150",img:"https://picsum.photos/seed/fashion/500/300", jumia:"https://www.jumia.com.gh/mlp-top-deals/", amazon:"https://www.amazon.com/s?k=sneakers&tag=eben05-20", badge:"JUMIA HOT"},
+{name:"Amazon Tech Deal",price:"From GHS 299",img:"https://picsum.photos/seed/tech/500/300", jumia:"https://www.jumia.com.gh/mobile-phones/", amazon:"https://www.amazon.com/s?k=phones&tag=eben05-20", badge:"AMAZON HOT"},
+{name:"Coconut Oil Pure",price:"GHS 40",img:"https://picsum.photos/seed/coco/500/300", jumia:"https://www.jumia.com.gh/catalog/?q=coconut+oil", amazon:"https://www.amazon.com/s?k=coconut+oil&tag=eben05-20"},
+{name:"Bamboo Investment Guide",price:"FREE",img:"https://picsum.photos/seed/invest/500/300", jumia:"https://investbamboo.com/", amazon:"https://investbamboo.com/", badge:"INVEST"}
+];
+
+const fallbacks=[
+"https://placehold.co/500x300/0d4a26/FFFFFF?text=Beru+Black+Soap",
+"https://placehold.co/500x300/d4af37/0d4a26?text=Shea+Pomade",
+"https://placehold.co/500x300/f68b1e/FFFFFF?text=Jumia+Fashion",
+"https://placehold.co/500x300/232f3e/ff9900?text=Amazon+Tech",
+"https://placehold.co/500x300/0d4a26/FFFFFF?text=Coconut+Oil",
+"https://placehold.co/500x300/00d09c/FFFFFF?text=Bamboo+Invest"
+];
+
+const box=document.getElementById('productBox');
+products.forEach((p,i)=>{
+box.innerHTML+=`
+<div class="card">
+<div style="position:relative">
+<img src="${p.img}" onerror="this.onerror=null;this.src='${fallbacks[i]}'" alt="${p.name}">
+${p.badge?`<span style="position:absolute;top:10px;left:10px;background:${p.badge.includes('JUMIA')?'#f68b1e':p.badge.includes('AMAZON')?'#232f3e':'#00d09c'};color:white;padding:4px 9px;border-radius:12px;font-size:11px;font-weight:700">${p.badge}</span>`:''}
+</div>
+<h3 style="margin:10px 0 5px">${p.name}</h3>
+<p style="font-weight:700;color:#0d4a26">${p.price}</p>
+<div class="buy-btns">
+<a href="https://wa.me/233537832845?text=I want ${p.name}" class="btn" style="background:#0d4a26;color:white;font-size:12px">WhatsApp Order</a>
+<a href="${p.jumia}" target="_blank" class="btn" style="background:#f68b1e;color:white;font-size:12px">Jumia 🛒</a>
+<a href="${p.amazon}" target="_blank" class="btn" style="background:#ff9900;color:black;font-size:12px">Amazon 🌍</a>
+</div>
+</div>`;
+});
+</script>
+</body>
+</html>
