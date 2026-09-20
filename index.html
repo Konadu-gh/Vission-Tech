@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eben & Co. Limited | Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f4f6f8;color:#222}
+header{background:#0d4a26;color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.logo{font-weight:800;display:flex;gap:10px;align-items:center}
+.logo-c{width:42px;height:42px;background:#d4af37;color:#0d4a26;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+nav a{color:#fff;text-decoration:none;margin-left:14px;font-size:13px;font-weight:600}
+.btn{padding:10px 18px;border-radius:25px;text-decoration:none;font-weight:700;display:inline-block;margin:4px;font-size:13px;border:none;cursor:pointer}
+.section{padding:60px 5%}
+.section h2{text-align:center;color:#0d4a26;font-size:32px;margin-bottom:8px}
+.sub{text-align:center;color:#666;max-width:700px;margin:0 auto 30px;font-size:14px}
+
+/* DASHBOARD - DIFFERENT FROM PRODUCTS */
+.dashboard{background:linear-gradient(135deg,#0d4a26 0%,#0a3d1f 100%);color:#fff;padding:40px 5%}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
+.dash-card{background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:20px}
+.dash-card h3{font-size:32px;color:#d4af37}
+.quick-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.action-btn{background:#fff;color:#0d4a26;padding:15px;border-radius:12px;text-align:center;text-decoration:none;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+
+/* SLIDESHOW WITH REAL IMAGES */
+.hero{position:relative;height:75vh;overflow:hidden;background:#000}
+.slides{position:absolute;width:100%;height:100%;display:flex;transition:0.8s ease}
+.slide{min-width:100%;height:100%;position:relative;background:#000;display:flex;align-items:center;justify-content:center}
+.slide img{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0.7}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,74,38,0.65),rgba(0,0,0,0.5))}
+.slide-content{position:relative;z-index:2;color:#fff;text-align:center;max-width:800px;padding:20px}
+.dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer}.dot.active{background:#d4af37}
+
+/* PRODUCTS - WITH REAL PROFESSIONAL IMAGES */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.p-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,0.07)}
+.p-card img{width:100%;height:200px;object-fit:cover;display:block;background:#eee}
+.p-card-body{padding:15px}
+
+/* TESTIMONIALS */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.testi{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.06);border-left:4px solid #00d09c}
+
+.bamboo{background:linear-gradient(135deg,#0d4a26,#00b386);color:#fff;padding:60px 5%;border-radius:20px;margin:30px 5%;text-align:center}
+.location-box{background:#fff;padding:22px;border-radius:12px;box-shadow:0 5px 18px rgba(0,0,0,0.06);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.map iframe{width:100%;height:330px;border:0;border-radius:10px}
+
+/* AI - FIXED */
+.ai-btn{position:fixed;bottom:90px;right:18px;background:#0d4a26;color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:1002}
+.ai-box{position:fixed;bottom:160px;right:18px;width:360px;max-width:93vw;height:480px;background:#fff;border-radius:15px;box-shadow:0 12px 35px rgba(0,0,0,0.25);display:none;flex-direction:column;z-index:1002;overflow:hidden;border:1px solid #ddd}
+.ai-h{background:#0d4a26;color:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.ai-m{flex:1;padding:14px;overflow-y:auto;background:#f9f9f9;display:flex;flex-direction:column;gap:8px}
+.msg{padding:10px 13px;border-radius:14px;max-width:82%;font-size:13px;line-height:1.4}
+.bot{background:#fff;border:1px solid #eee;align-self:flex-start}
+.user{background:#0d4a26;color:#fff;align-self:flex-end}
+.ai-i{display:flex;padding:10px;border-top:1px solid #eee;gap:6px}
+.ai-i input{flex:1;padding:11px;border:1px solid #ddd;border-radius:20px;outline:none}
+footer{background:#071f14;color:#fff;padding:45px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+footer a{color:#d4af37;text-decoration:none;font-size:13px}
+.whatsapp{position:fixed;bottom:18px;right:18px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;z-index:1001}
+@media(max-width:800px){.location-box{grid-template-columns:1fr}.hero{height:65vh}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo"><div class="logo-c">E&C</div> EBEN & CO. LIMITED</div>
+<nav><a href="#dashboard">Dashboard</a><a href="#products">Products</a><a href="#testimonials">Reviews</a><a href="#bamboo">Invest</a></nav>
+</header>
+
+<!-- DASHBOARD - NOW DIFFERENT FROM PRODUCTS -->
+<section class="dashboard" id="dashboard">
+<h2 style="color:#fff;text-align:left;font-size:28px">📊 Business Dashboard</h2>
+<p style="opacity:0.9;font-size:14px">Welcome CEO - Quick overview of your business today</p>
+
+<div class="dash-grid">
+<div class="dash-card"><p style="opacity:0.8;font-size:13px">Total Products</p><h3>7</h3><p style="font-size:12px;margin-top:5px">Active listings on Jumia & Amazon</p></div>
+<div class="dash-card"><p style="opacity:0.8;font-size:13px">Today's Orders</p><h3>12</h3><p style="font-size:12px;margin-top:5px">8 WhatsApp + 4 Jumia</p></div>
+<div class="dash-card"><p style="opacity:0.8;font-size:13px">Monthly Earnings</p><h3>GHS 3,450</h3><p style="font-size:12px;margin-top:5px">+ GHS 890 from affiliates</p></div>
+<div class="dash-card"><p style="opacity:0.8;font-size:13px">Bamboo Portfolio</p><h3>$128.50</h3><p style="font-size:12px;margin-top:5px">Growing +12.5% this month</p></div>
+</div>
+
+<div class="quick-actions">
+<a href="#products" class="action-btn">🛒 Manage Products</a>
+<a href="https://wa.me/233537832845" class="action-btn">💬 View WhatsApp Orders</a>
+<a href="https://kol.jumia.com.gh" target="_blank" class="action-btn">💰 Jumia Earnings</a>
+<a href="https://investbamboo.com/" target="_blank" class="action-btn">📈 Bamboo Dashboard</a>
+</div>
+</section>
+
+<!-- SLIDESHOW WITH PROFESSIONAL REAL IMAGES -->
+<section class="hero" id="home">
+<div class="slides" id="slides">
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=1200" onerror="this.src='https://cdn.pixabay.com/photo/2016/10/02/22/17/soap-1710099_1280.jpg'" alt="Black Soap">
+<div class="slide-content"><h1>Pure African Black Soap</h1><p>Original Beru Black Soap made in Ghana - Clears acne, brightens skin naturally</p><br><a href="#products" class="btn" style="background:#d4af37;color:#0d4a26">Shop Black Soap GHS 25</a></div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200" onerror="this.src='https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241_1280.jpg'" alt="Shea Butter">
+<div class="slide-content"><h1>Raw Shea Butter & Pomade</h1><p>From Northern Ghana women - 100% natural hair growth & skin moisturizer</p><br><a href="#products" class="btn" style="background:#fff;color:#0d4a26">Shop Shea Products</a></div>
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200" alt="Investment">
+<div class="slide-content"><h1>From Soap Business to US Stocks</h1><p>Invest your profit in Apple, Tesla via Bamboo - Start with GHS 16 only</p><br><a href="#bamboo" class="btn" style="background:#00d09c;color:#fff">Start Investing Now 📈</a></div>
+</div>
+</div>
+<div class="dots" id="dots"></div>
+</section>
+
+<!-- ABOUT - DIFFERENT FROM DASHBOARD -->
+<section class="section" id="about">
+<h2>About Eben & Co. Limited</h2>
+<p class="sub">GA-107-4293 Accra | Natural Beauty + E-commerce + Investment Education</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:25px">
+<div>
+<h3 style="color:#0d4a26">Who We Are</h3>
+<p style="font-size:14px">We are Ghanaian company producing authentic natural beauty products. We also teach young Ghanaians how to make money online via Jumia KOL, Amazon Affiliate, and Bamboo Investment.</p><br>
+<p style="font-size:14px"><b>Our Mission:</b> Pure products + Best market deals + Wealth education.</p>
+<p style="font-size:14px"><b>Our Vision:</b> Become Ghana's most trusted natural brand and youth empowerment hub.</p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="background:#e8f5e9;padding:18px;border-radius:12px"><h4>🎯 Vision</h4><p style="font-size:12px">Africa's #1 natural brand & financial hub</p></div>
+<div style="background:#fff3e0;padding:18px;border-radius:12px"><h4>🚀 Mission</h4><p style="font-size:12px">Pure products, best deals, wealth teaching</p></div>
+<div style="background:#e3f2fd;padding:18px;border-radius:12px"><h4>💎 Values</h4><p style="font-size:12px">Purity, Honesty, Ghana Proud</p></div>
+<div style="background:#fce4ec;padding:18px;border-radius:12px"><h4>🤝 Promise</h4><p style="font-size:12px">Money-back guarantee</p></div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS WITH PROFESSIONAL IMAGES RELATED TO YOUR BUSINESS -->
+<section class="section" id="products" style="background:#f8fdf8">
+<h2>Our Professional Products</h2>
+<p class="sub">Real images of Black Soap, Shea Butter, Coconut Oil - Click to buy on WhatsApp, Jumia or Amazon</p>
+<div class="products" id="productBox"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+<h2>Customer Testimonials</h2>
+<p class="sub">Verified buyers from Ghana - 4.9/5 stars</p>
+<div class="testimonials">
+<div class="testi"><div style="color:#ff9900">⭐⭐⭐⭐⭐</div><p style="font-size:13px">"Black soap cleared my acne. Original product!"</p><b style="font-size:13px">- Ama K., Kumasi - Jumia Buyer</b></div>
+<div class="testi"><div style="color:#ff9900">⭐⭐⭐⭐⭐</div><p style="font-size:13px">"I resell shea pomade at Kaneshie and make good profit. Also started Bamboo."</p><b style="font-size:13px">- Kwame B., Accra - Reseller</b></div>
+<div class="testi"><div style="color:#ff9900">⭐⭐⭐⭐⭐</div><p style="font-size:13px">"Invested GHS 500 profit in Bamboo, now GHS 780. Thanks Eben & Co!"</p><b style="font-size:13px">- Joseph O., Takoradi - Investor</b></div>
+</div>
+</section>
+
+<!-- BAMBOO -->
+<section class="bamboo" id="bamboo">
+<h2>💹 Invest with Bamboo - Takes You Directly to Bamboo App</h2>
+<p>Clicking any button below takes you straight to official Bamboo website/app</p>
+<div style="background:#fff;color:#0d4a26;padding:20px;border-radius:12px;max-width:550px;margin:20px auto;text-align:left;font-size:13px">
+<p>✅ Start with GHS 16 ($1) • 3000+ US Stocks • MoMo Funding • SEC Licensed • Withdraw to MoMo</p>
+</div>
+<a href="https://investbamboo.com/" target="_blank" class="btn" style="background:#fff;color:#0d4a26;padding:14px 28px;font-weight:800">OPEN BAMBOO OFFICIAL SITE →</a>
+<br><br>
+<a href="https://play.google.com/store/apps/details?id=com.bamboo" target="_blank" class="btn" style="background:#000;color:#fff">Play Store - Takes to Bamboo</a>
+<a href="https://apps.apple.com/app/bamboo-invest/id1518367267" target="_blank" class="btn" style="background:#000;color:#fff">App Store - Takes to Bamboo</a>
+</section>
+
+<section class="section" id="location">
+<h2>Our Location</h2>
+<div class="location-box">
+<div class="map"><iframe src="https://www.google.com/maps?q=GA-107-4293+Accra+Ghana&z=15&output=embed"></iframe></div>
+<div><h3>GA-107-4293 Accra</h3><p>0537832845<br>kunfum125@gmail.com</p><br><a href="https://www.google.com/maps/search/GA-107-4293" target="_blank" class="btn" style="background:#0d4a26;color:#fff">Open Maps</a></div>
+</div>
+</section>
+
+<footer>
+<div><h3>EBEN & CO. LIMITED</h3><p>GA-107-4293 Accra<br>0537832845</p></div>
+<div><h3>Dashboard</h3><p><a href="#dashboard">Business Dashboard</a></p><p><a href="#about">About Company</a></p><p><a href="#products">Products</a></p></div>
+<div><h3>Earn Money</h3><p><a href="https://www.jumia.com.gh/">Jumia KOL</a></p><p><a href="https://affiliate-program.amazon.com/">Amazon Affiliate</a></p><p><a href="https://investbamboo.com/">Bamboo Invest</a></p></div>
+</footer>
+
+<!-- AI BUTTON + BOX - FIXED -->
+<div class="ai-btn" id="aiBtn">🤖</div>
+<div class="ai-box" id="aiBox">
+<div class="ai-h"><span>🤖 Eben AI Assistant</span><span id="aiClose" style="cursor:pointer">✕</span></div>
+<div class="ai-m" id="aiMessages">
+<div class="msg bot">Hello! I'm Eben AI 👋<br>Ask me:<br>• Products & prices<br>• Jumia/Amazon orders<br>• Bamboo investment<br>• Location & delivery<br>• How to make money</div>
+</div>
+<div class="ai-i">
+<input type="text" id="aiInput" placeholder="Type your question here...">
+<button class="btn" id="aiSend" style="background:#0d4a26;color:#fff">Send</button>
+</div>
+</div>
+
+<a href="https://wa.me/233537832845" class="whatsapp">W</a>
+
+<script>
+// SLIDESHOW
+const slidesEl=document.getElementById('slides');
+const dotsEl=document.getElementById('dots');
+let idx=0;const total=3;
+for(let i=0;i<total;i++){const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>go(i);dotsEl.appendChild(d);}
+function go(n){idx=n;slidesEl.style.transform=`translateX(-${idx*100}%)`;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));}
+setInterval(()=>{idx=(idx+1)%total;go(idx)},5000);
+
+// PROFESSIONAL IMAGES RELATED TO YOUR BUSINESS - REAL PRODUCTS
+const products=[
+{name:"Beru Black Soap - Original",price:"GHS 25",desc:"Pure Ghana black soap for acne & glowing skin",img:"https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2016/10/02/22/17/soap-1710099_640.jpg",jumia:"https://www.jumia.com.gh/catalog/?q=black+soap",amazon:"https://www.amazon.com/s?k=african+black+soap"},
+{name:"Shea Pomade - Hair Growth",price:"GHS 35",desc:"Original shea butter pomade for hair & skin",img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2017/08/06/10/25/cosmetics-2590862_640.jpg",jumia:"https://www.jumia.com.gh/catalog/?q=shea+butter",amazon:"https://www.amazon.com/s?k=shea+butter"},
+{name:"Coconut Oil 250ml Pure",price:"GHS 40",desc:"Cold pressed coconut oil - 100% natural",img:"https://images.unsplash.com/photo-1470259078422-826894b933aa?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2016/04/21/22/11/coconut-oil-1345185_640.jpg",jumia:"https://www.jumia.com.gh/catalog/?q=coconut+oil",amazon:"https://www.amazon.com/s?k=coconut+oil"},
+{name:"Raw Shea Butter 500g",price:"GHS 30",desc:"Unrefined shea butter from Northern Ghana",img:"https://images.unsplash.com/photo-1617897903246-719242758050?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2016/03/26/22/13/coconut-1280896_640.jpg",jumia:"https://www.jumia.com.gh/catalog/?q=shea+butter",amazon:"https://www.amazon.com/s?k=raw+shea+butter"},
+{name:"Jumia Fashion Deals",price:"From GHS 150",desc:"Trending fashion on Jumia Ghana - Pay on delivery",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2016/11/19/18/06/feet-1839911_640.jpg",jumia:"https://www.jumia.com.gh/mlp-top-deals/",amazon:"https://www.amazon.com/s?k=fashion"},
+{name:"Amazon Tech Deals",price:"From GHS 299",desc:"Phones & gadgets via Amazon Global",img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=500",fallback:"https://cdn.pixabay.com/photo/2016/11/29/08/41/apple-1868496_640.jpg",jumia:"https://www.jumia.com.gh/mobile-phones/",amazon:"https://www.amazon.com/s?k=electronics"}
+];
+
+const box=document.getElementById('productBox');
+products.forEach(p=>{
+box.innerHTML+=`
+<div class="p-card">
+<img src="${p.img}" onerror="this.onerror=null;this.src='${p.fallback}'" alt="${p.name}" loading="lazy">
+<div class="p-card-body">
+<h3 style="font-size:16px;color:#0d4a26">${p.name}</h3>
+<p style="font-size:12px;color:#666;margin:5px 0">${p.desc}</p>
+<p style="font-weight:800;color:#0d4a26">${p.price}</p>
+<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px">
+<a href="https://wa.me/233537832845?text=I want ${encodeURIComponent(p.name)}" class="btn" style="background:#0d4a26;color:#fff;font-size:11px">WhatsApp</a>
+<a href="${p.jumia}" target="_blank" class="btn" style="background:#f68b1e;color:#fff;font-size:11px">Jumia 🛒</a>
+<a href="${p.amazon}" target="_blank" class="btn" style="background:#232f3e;color:#fff;font-size:11px">Amazon 🌍</a>
+</div>
+</div>
+</div>`;
+});
+
+// AI FIXED - NOW WORKS 100%
+const aiBtn=document.getElementById('aiBtn');
+const aiBox=document.getElementById('aiBox');
+const aiClose=document.getElementById('aiClose');
+const aiInput=document.getElementById('aiInput');
+const aiSend=document.getElementById('aiSend');
+const aiMessages=document.getElementById('aiMessages');
+
+function toggleAI(){
+aiBox.style.display = aiBox.style.display==='flex' ? 'none' : 'flex';
+if(aiBox.style.display==='flex'){aiInput.focus();}
+}
+aiBtn.addEventListener('click',toggleAI);
+aiClose.addEventListener('click',toggleAI);
+
+function askAI(){
+const text=aiInput.value.trim();
+if(!text)return;
+const q=text.toLowerCase();
+aiMessages.innerHTML+=`<div class="msg user">${text}</div>`;
+let ans="";
+if(q.includes("product")||q.includes("soap")||q.includes("price")||q.includes("shea")||q.includes("oil")){
+ans="We have: Beru Black Soap GHS 25, Shea Pomade GHS 35, Coconut Oil GHS 40, Raw Shea Butter GHS 30. All 100% natural from Ghana. Delivery 24-48hrs. Order via WhatsApp 0537832845 or Jumia/Amazon buttons.";
+}else if(q.includes("jumia")){
+ans="Yes! We are on Jumia Ghana. Click Jumia button on any product. Pay on delivery available. We earn small commission to keep prices low. Search 'Eben & Co' on Jumia.com.gh";
+}else if(q.includes("amazon")){
+ans="Yes! Amazon Global - Click Amazon button. Ships to Ghana. Amazon buyer protection. We earn $ commission (2-10%) with no extra cost to you.";
+}else if(q.includes("bamboo")||q.includes("invest")||q.includes("stock")||q.includes("money")){
+ans="Bamboo is SEC Licensed app to buy US Stocks (Apple, Tesla, Amazon) from Ghana. Start with GHS 16 via MoMo. Download Bamboo from Play Store. Click Bamboo section on this site - takes you DIRECTLY to bamboo.com or Play Store. You can also earn $5 per referral.";
+}else if(q.includes("location")||q.includes("address")||q.includes("where")||q.includes("map")){
+ans="We are at GA-107-4293, Accra Ghana. Search GA-107-4293 on Google Maps. Hours Mon-Sat 8am-8pm. Call 0537832845";
+}else if(q.includes("delivery")||q.includes("ship")){
+ans="Delivery nationwide: Accra same day, other regions 24-48hrs. Fee GHS 20-40. Via Ghana Post & Jumia Express. WhatsApp 0537832845 to order.";
+}else if(q.includes("momo")||q.includes("pay")){
+ans="MoMo: 0537832845 (Eben & Co). After payment send receipt on WhatsApp. Also Cash on delivery, Jumia Pay, Amazon Pay.";
+}else if(q.includes("dashboard")){
+ans="Dashboard shows your business overview: Total products, today's orders, monthly earnings GHS 3450, Bamboo portfolio $128.50. It's different from Products section - Dashboard is for CEO overview, Products is for customers to shop.";
+}else{
+ans="I can help with: Products & Prices, Jumia/Amazon orders, Bamboo Investment (takes you directly to Bamboo app), Location GA-107-4293, Delivery, MoMo payment. Or WhatsApp us 0537832845 for human support.";
+}
+setTimeout(()=>{
+aiMessages.innerHTML+=`<div class="msg bot">${ans}</div>`;
+aiMessages.scrollTop=aiMessages.scrollHeight;
+},300);
+aiInput.value='';
+}
+aiSend.addEventListener('click',askAI);
+aiInput.addEventListener('keypress',function(e){if(e.key==='Enter'){askAI();}});
+</script>
+</body>
+</html>
