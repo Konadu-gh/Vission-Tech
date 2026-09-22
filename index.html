@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBEN & CO. LIMITED | Rooted in Africa. Built for Tomorrow.</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Inter',sans-serif; background:#FFFBF5;}
+ .serif{font-family:'Fraunces',serif;}
+ .slide{transition: all 0.8s ease-in-out;}
+ .ad-scroll{animation: scroll 25s linear infinite;}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<!-- NAV - Same as picture -->
+<nav class="bg-[#0A2E20] text-white sticky top-0 z-[100] px-6 lg:px-12 py-4 flex items-center justify-between shadow-xl">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 bg-[#E8C766] rounded-full flex items-center justify-center text-[#0A2E20] font-bold">E</div>
+    <div>
+      <h1 class="font-bold tracking-widest leading-none text-[18px]">EBEN & CO.</h1>
+      <p class="text-[10px] tracking-[0.4em] text-[#E8C766]">LIMITED</p>
+    </div>
+  </div>
+  <div class="hidden lg:flex gap-8 text-sm">
+    <a class="text-white border-b-2 border-[#E8C766] pb-1">Home</a>
+    <a href="#about" class="hover:text-[#E8C766]">About</a>
+    <a href="#invest" class="hover:text-[#E8C766]">Invest</a>
+    <a href="#shop" class="hover:text-[#E8C766]">Shop</a>
+    <a href="#impact" class="hover:text-[#E8C766]">Impact</a>
+    <a href="#contact" class="hover:text-[#E8C766]">Contact</a>
+  </div>
+  <div class="flex items-center gap-4">
+    <button>🔍</button><button class="relative">🛒 <span class="absolute -top-2 -right-2 bg-[#E8C766] text-[#0A2E20] text-[10px] w-4 h-4 rounded-full">0</span></button>
+    <a class="bg-[#E8C766] text-[#0A2E20] px-6 py-2.5 rounded-full text-sm font-bold hidden md:block">Get Started</a>
+  </div>
+</nav>
+
+<!-- 1. HOME DASHBOARD SLIDESHOW - 3 SLIDES LIKE 01/03 in picture -->
+<section id="home" class="relative h-[90vh] bg-[#0A2E20] overflow-hidden">
+  <!-- SLIDES -->
+  <div id="slider" class="relative w-full h-full">
+    <!-- SLIDE 1 - Same image as your picture -->
+    <div class="slide absolute inset-0 opacity-100" data-slide="1">
+      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A2E20] via-[#0A2E20]/60 to-transparent"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-40 bg-[#E8C766]/10 hidden lg:block" style="background-image: url('https://www.transparenttextures.com/patterns/kente.png');"></div>
+      <div class="relative z-10 px-6 lg:px-20 h-full flex items-center">
+        <div class="max-w-2xl">
+          <p class="text-[#E8C766] text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2">🌿 SUSTAINABLE AFRICA <span class="w-6 h-[1px] bg-[#E8C766]"></span> LASTING GROWTH</p>
+          <h1 class="serif text-5xl lg:text-[72px] text-white leading-[0.9] mb-6">Rooted in Africa.<br>Built for <span class="text-[#E8C766]">Tomorrow.</span></h1>
+          <p class="text-white/80 max-w-lg mb-8 leading-relaxed">Eben & Co. Limited is a Ghana-based business creating sustainable products, investment opportunities and partnerships for long-term growth.</p>
+          <div class="flex gap-4">
+            <a href="#shop" class="bg-[#E8C766] text-[#0A2E20] px-7 py-3 rounded-full font-bold text-sm flex items-center gap-2">Explore Our Products →</a>
+            <a href="#invest" class="border border-white/30 backdrop-blur text-white px-7 py-3 rounded-full text-sm">Discover Investment →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDE 2 - Bamboo Forest -->
+    <div class="slide absolute inset-0 opacity-0" data-slide="2">
+      <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 px-6 lg:px-20 h-full flex items-center">
+        <div class="max-w-2xl">
+          <p class="text-[#E8C766] text-xs tracking-[0.3em] uppercase mb-4">100% BAMBOO ● 100% GHANA</p>
+          <h1 class="serif text-5xl lg:text-[72px] text-white leading-[0.9] mb-6">Bamboo is The<br><span class="text-[#E8C766]">Future.</span></h1>
+          <p class="text-white/80 max-w-lg mb-8">From charcoal to flooring, we turn Ghana's abundant bamboo into high-value products for global markets.</p>
+          <a href="#invest" class="bg-white text-[#0A2E20] px-7 py-3 rounded-full font-bold text-sm">See Our Farm →</a>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDE 3 - Investor -->
+    <div class="slide absolute inset-0 opacity-0" data-slide="3">
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-[#0A2E20]/70"></div>
+      <div class="relative z-10 px-6 lg:px-20 h-full flex items-center">
+        <div class="max-w-2xl">
+          <p class="text-[#E8C766] text-xs tracking-[0.3em] uppercase mb-4">INVEST WITH US ● 25% ROI</p>
+          <h1 class="serif text-5xl lg:text-[72px] text-white leading-[0.9] mb-6">Invest in<br><span class="text-[#E8C766]">Sustainability.</span></h1>
+          <p class="text-white/80 max-w-lg mb-8">Join 200+ investors earning from bamboo plantations, e-commerce sales on Amazon & Jumia, and carbon credits.</p>
+          <a href="#invest" class="bg-[#E8C766] text-[#0A2E20] px-7 py-3 rounded-full font-bold text-sm">Start Investing →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SLIDER CONTROLS - Like 01/03 in picture -->
+  <div class="absolute bottom-10 right-10 lg:right-20 z-20 flex flex-col items-end gap-3">
+    <p class="text-white/80 text-sm"><span id="currentSlide">01</span> / 03</p>
+    <div class="flex gap-2">
+      <button onclick="changeSlide(-1)" class="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black">‹</button>
+      <button onclick="changeSlide(1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-white hover:text-black">›</button>
+    </div>
+  </div>
+  <div class="absolute bottom-10 left-6 lg:left-20 z-20 flex gap-2">
+    <span class="dot w-8 h-1 bg-[#E8C766] rounded-full"></span><span class="dot w-2 h-1 bg-white/40 rounded-full"></span><span class="dot w-2 h-1 bg-white/40 rounded-full"></span>
+  </div>
+</section>
+
+<!-- 2. ADVERTISEMENT BOARD - Moving ticker -->
+<div class="bg-[#E8C766] py-3 overflow-hidden whitespace-nowrap border-y border-black/10">
+  <div class="ad-scroll flex gap-12 text-[#0A2E20] font-bold text-sm tracking-widest">
+    <span>🌱 NEW STOCK: BAMBOO CHARCOAL NOW ON AMAZON - 20% OFF ●</span>
+    <span>🇬🇭 PROUDLY MADE IN GHANA, SHIPPED WORLDWIDE ●</span>
+    <span>📦 AVAILABLE ON JUMIA GHANA & AMAZON USA ●</span>
+    <span>💰 INVESTORS EARN 25% ROI YEARLY ●</span>
+    <span>🌱 NEW STOCK: BAMBOO CHARCOAL NOW ON AMAZON - 20% OFF ●</span>
+    <span>🇬🇭 PROUDLY MADE IN GHANA, SHIPPED WORLDWIDE ●</span>
+  </div>
+</div>
+
+<!-- 3. WHAT IS EBEN & CO ABOUT -->
+<section id="about" class="px-6 lg:px-20 py-20 bg-white grid lg:grid-cols-2 gap-16 items-center">
+  <div>
+    <p class="text-[#0A2E20] text-xs tracking-[0.4em] mb-3">ABOUT US</p>
+    <h2 class="serif text-5xl text-[#0A2E20] leading-[0.9] mb-6">More Than a Business.<br><span class="text-[#1A5C3D]">A Movement.</span></h2>
+    <p class="text-gray-600 leading-relaxed mb-6">Eben & Co. Limited is a Ghanaian sustainability company based in Accra. We started with one mission: turn Ghana's underused bamboo into wealth for farmers, jobs for youth, and clean products for the world.</p>
+    <p class="text-gray-600 leading-relaxed mb-8">Today we operate bamboo plantations, produce eco-products, and sell across Ghana (Jumia) and internationally (Amazon). We are building Africa's first bamboo industrial park.</p>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-[#FFFBF5] p-4 rounded-xl border"><p class="text-3xl font-bold text-[#0A2E20]">200+</p><p class="text-xs text-gray-500">Investors</p></div>
+      <div class="bg-[#FFFBF5] p-4 rounded-xl border"><p class="text-3xl font-bold text-[#0A2E20]">50 Acre</p><p class="text-xs text-gray-500">Bamboo Farm</p></div>
+    </div>
+  </div>
+  <div class="relative">
+    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800" class="rounded-[24px] h-[500px] w-full object-cover"/>
+    <div class="absolute -bottom-6 -left-6 bg-white shadow-2xl p-5 rounded-2xl flex items-center gap-4">
+      <div class="w-12 h-12 bg-[#0A2E20] rounded-full flex items-center justify-center text-[#E8C766]">🌿</div>
+      <div><p class="font-bold text-sm">Sustainable Products</p><p class="text-xs text-gray-500">Eco-friendly & biodegradable</p></div>
+    </div>
+    <div class="absolute -top-6 -right-6 bg-[#E8C766] p-4 rounded-2xl shadow-xl"><p class="font-bold text-[#0A2E20] text-sm">🇬🇭 Proudly Ghanaian<br>Globally Minded</p></div>
+  </div>
+</section>
+
+<!-- 4. MISSION VISION SLOGAN HOSTING - Attract Investors -->
+<section class="bg-[#0A2E20] text-white px-6 lg:px-20 py-20">
+  <div class="grid lg:grid-cols-4 gap-8">
+    <div class="lg:col-span-1">
+      <h3 class="serif text-4xl leading-none">Why<br>Investors<br>Choose Us</h3>
+      <p class="text-white/60 text-sm mt-4">We are not just selling products. We are selling the future of Africa.</p>
+    </div>
+    <div class="lg:col-span-3 grid md:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition"><p class="text-[#E8C766] text-xs tracking-widest mb-2">OUR MISSION</p><p class="font-bold text-lg">To transform Ghana's bamboo into sustainable wealth, creating jobs and protecting the environment.</p></div>
+      <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition"><p class="text-[#E8C766] text-xs tracking-widest mb-2">OUR VISION</p><p class="font-bold text-lg">To become Africa's largest bamboo products company by 2030, listed on GSE.</p></div>
+      <div class="bg-[#E8C766] text-[#0A2E20] p-6 rounded-2xl"><p class="text-xs tracking-widest mb-2">OUR SLOGAN</p><p class="serif font-bold text-2xl">"Rooted in Africa. Built for Tomorrow."</p><p class="text-sm mt-2 opacity-80">Every product, every farm, every investor is rooted here but built for the world.</p></div>
+    </div>
+  </div>
+  <!-- HOSTING / INFRASTRUCTURE -->
+  <div class="mt-16 grid md:grid-cols-3 gap-6 text-sm">
+    <div class="flex gap-4"><span class="text-2xl">🏭</span><div><b>Bamboo Industrial Hosting</b><br><span class="text-white/60">We host processing units, warehousing and export logistics for partners.</span></div></div>
+    <div class="flex gap-4"><span class="text-2xl">📈</span><div><b>Investor Dashboard Hosting</b><br><span class="text-white/60">Real-time ROI tracking, farm camera access, dividend reports.</span></div></div>
+    <div class="flex gap-4"><span class="text-2xl">🌍</span><div><b>E-commerce Hosting</b><br><span class="text-white/60">Products hosted on Amazon USA, Jumia Ghana, and our own store with global fulfillment.</span></div></div>
+  </div>
+</section>
+
+<!-- 5. INVESTMENT - PRODUCTS -->
+<section id="invest" class="px-6 lg:px-20 py-20 bg-[#FFFBF5]">
+  <div class="flex justify-between items-end mb-10">
+    <div><p class="text-xs tracking-[0.4em] text-[#0A2E20]">INVESTMENT PRODUCTS</p><h2 class="serif text-5xl text-[#0A2E20] mt-2">Our Bamboo Products</h2></div>
+    <a class="hidden md:block bg-[#0A2E20] text-white px-6 py-3 rounded-full text-sm">View All on Jumia & Amazon →</a>
+  </div>
+
+  <!-- Product Grid with Amazon Jumia Stock -->
+  <div class="grid md:grid-cols-3 gap-6">
+    <!-- Product 1 -->
+    <div class="bg-white rounded-[20px] overflow-hidden shadow-sm border hover:shadow-xl transition">
+      <div class="relative h-64"><img src="https://images.unsplash.com/photo-1608571423902-eed4a94d8108?q=80&w=800" class="w-full h-full object-cover"/><span class="absolute top-4 left-4 bg-[#E8C766] text-[#0A2E20] text-xs font-bold px-3 py-1 rounded-full">BESTSELLER</span><span class="absolute top-4 right-4 bg-white text-xs px-2 py-1 rounded-full">🌿 In Stock: 500 units</span></div>
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Eben Bamboo Charcoal</h3><p class="text-xs text-gray-500 mb-2">Activated Bamboo Charcoal Powder</p>
+        <p class="text-sm text-gray-600"><b>Uses:</b> Water purification, teeth whitening, skincare, BBQ, air filtration. 100% organic, burns longer than wood charcoal, no smoke.</p>
+        <div class="flex gap-2 mt-4"><span class="bg-black text-white text-[10px] px-3 py-1 rounded-full flex items-center gap-1">🅰 Amazon USA</span><span class="bg-orange-500 text-white text-[10px] px-3 py-1 rounded-full">JUMIA Ghana</span></div>
+        <div class="flex justify-between items-center mt-4"><p class="font-bold">$24.99 / GHS 380</p><button class="bg-[#0A2E20] text-white px-4 py-2 rounded-full text-xs">Invest in Stock</button></div>
+      </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="bg-white rounded-[20px] overflow-hidden shadow-sm border hover:shadow-xl transition">
+      <div class="relative h-64"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=800" class="w-full h-full object-cover"/><span class="absolute top-4 right-4 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">🌿 In Stock: 1200 units</span></div>
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Bamboo Fiber Toothbrush</h3><p class="text-xs text-gray-500 mb-2">Biodegradable Toothbrush Pack of 4</p>
+        <p class="text-sm text-gray-600"><b>Uses:</b> Daily oral care, eco-friendly alternative to plastic. Handle decomposes in 6 months. Soft bristles, charcoal-infused.</p>
+        <div class="flex gap-2 mt-4"><span class="bg-black text-white text-[10px] px-3 py-1 rounded-full">🅰 Amazon</span><span class="bg-orange-500 text-white text-[10px] px-3 py-1 rounded-full">JUMIA</span></div>
+        <div class="flex justify-between items-center mt-4"><p class="font-bold">$12.50 / GHS 190</p><button class="bg-[#0A2E20] text-white px-4 py-2 rounded-full text-xs">Invest in Stock</button></div>
+      </div>
+    </div>
+    <!-- Product 3 -->
+    <div class="bg-white rounded-[20px] overflow-hidden shadow-sm border hover:shadow-xl transition">
+      <div class="relative h-64"><img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?q=80&w=800" class="w-full h-full object-cover"/><span class="absolute top-4 right-4 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">🌿 In Stock: 80 bundles</span></div>
+      <div class="p-6">
+        <h3 class="font-bold text-lg">Bamboo Flooring & Ply</h3><p class="text-xs text-gray-500 mb-2">Construction Grade Bamboo</p>
+        <p class="text-sm text-gray-600"><b>Uses:</b> Flooring, wall cladding, furniture, scaffolding. Stronger than oak, termite resistant, sustainable timber replacement.</p>
+        <div class="flex gap-2 mt-4"><span class="bg-blue-600 text-white text-[10px] px-3 py-1 rounded-full">🏗️ B2B Stock</span><span class="bg-black text-white text-[10px] px-3 py-1 rounded-full">Export Ready</span></div>
+        <div class="flex justify-between items-center mt-4"><p class="font-bold">$150 / bundle</p><button class="bg-[#E8C766] text-black px-4 py-2 rounded-full text-xs font-bold">Bulk Investor</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAMBOO PLACE + AMAZON JUMIA BOARD -->
+  <div class="mt-16 grid lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 bg-white rounded-[20px] p-6 border flex gap-6">
+      <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=400" class="w-40 h-40 rounded-xl object-cover"/>
+      <div><h4 class="font-bold text-lg">Our 50-Acre Bamboo Place - Nsawam, Ghana</h4><p class="text-sm text-gray-600 mt-2">Located on Accra-Kumasi road. 30,000 bamboo clumps, nursery for 100,000 seedlings yearly. Investors can visit, own clumps (GHS 500 per clump = GHS 1500 yearly return), and track growth via drone footage.</p><div class="flex gap-4 mt-3 text-xs"><span>📍 45 mins from Accra</span><span>🌱 30k clumps</span><span>👷 25 farm jobs created</span></div></div>
+    </div>
+    <div class="bg-[#0A2E20] rounded-[20px] p-6 text-white">
+      <h4 class="font-bold">Where Our Products Sell</h4>
+      <div class="mt-4 space-y-3">
+        <div class="flex justify-between items-center bg-white/10 p-3 rounded-xl"><span class="flex items-center gap-2">🅰 Amazon USA</span><span class="text-[#E8C766] text-sm">4.8★ (342 reviews)</span></div>
+        <div class="flex justify-between items-center bg-white/10 p-3 rounded-xl"><span class="flex items-center gap-2">🛒 Jumia Ghana</span><span class="text-[#E8C766] text-sm">Top 10 Eco Seller</span></div>
+        <div class="flex justify-between items-center bg-[#E8C766] p-3 rounded-xl text-[#0A2E20] font-bold"><span>📦 Own Store</span><span>ebenandco.com/shop</span></div>
+      </div>
+      <button class="w-full mt-4 bg-white text-black py-2 rounded-full text-sm font-bold">View Live Stock Dashboard →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA FOR INVESTORS -->
+<section class="bg-[#E8C766] px-6 lg:px-20 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+  <div><h2 class="serif text-4xl text-[#0A2E20]">Ready to invest in Ghana's green gold?</h2><p class="text-[#0A2E20]/70 text-sm mt-2">Minimum GHS 5,000 ● 25% ROI ● Quarterly dividends ● Farm visit included</p></div>
+  <a href="#contact" class="bg-[#0A2E20] text-white px-8 py-4 rounded-full font-bold">Become an Investor →</a>
+</section>
+
+<script>
+let current=1;
+function changeSlide(dir){
+  document.querySelector(`[data-slide="${current}"]`).style.opacity=0;
+  current+=dir; if(current>3)current=1; if(current<1)current=3;
+  document.querySelector(`[data-slide="${current}"]`).style.opacity=1;
+  document.getElementById('currentSlide').innerText='0'+current;
+  document.querySelectorAll('.dot').forEach((d,i)=>{d.className=i+1==current?'dot w-8 h-1 bg-[#E8C766] rounded-full':'dot w-2 h-1 bg-white/40 rounded-full'});
+}
+setInterval(()=>changeSlide(1),5000);
+</script>
+
+</body>
+</html>
