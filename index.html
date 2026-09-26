@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP AFRIK | Be-youtiful bespoke Collections | EBEN & CO GROUP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{font-family:'Inter',sans-serif}h1,h2,.syne{font-family:'Syne',sans-serif}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-18px) rotate(2deg)}}
+.float{animation:float 5s ease-in-out infinite}.float2{animation:float2 6s ease-in-out infinite}
+.card-lift{transition:.4s cubic-bezier(.16,1,.3,1)}.card-lift:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.12)}
+.glass{backdrop-filter:blur(16px);background:rgba(255,255,255,.88)}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.active{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body class="bg-[#FFFBF7] overflow-x-hidden">
+
+<nav class="fixed top-0 w-full z-50 px-4">
+<div class="max-w-[1440px] mx-auto mt-4 glass rounded-full border border-black/5 px-6 h-[64px] flex items-center justify-between shadow-sm">
+<span class="syne font-extrabold text-[18px]">SHOP AFRIK<span class="text-[#FF4D7A]">.</span></span>
+<div class="hidden lg:flex gap-7 text-[12px] font-semibold tracking-widest"><a>SHOP</a><a>COLLECTIONS</a><a>OUR STORY</a><a id="vissionLink">VISSION TECH</a><a>WEALTH</a></div>
+<div class="flex gap-2"><button id="searchBtn" class="w-10 h-10 rounded-full border grid place-items-center">⌕</button><button class="w-10 h-10 rounded-full border relative" id="wishBtn">♡<span id="wishCount" class="absolute -top-1 -right-1 bg-[#FF4D7A] text-white text-[9px] w-4 h-4 rounded-full grid place-items-center">0</span></button><button id="cartBtn" class="bg-black text-white px-5 h-10 rounded-full text-[12px] font-bold flex gap-2 items-center">CART <span id="cartCount" class="bg-white text-black w-5 h-5 rounded-full grid place-items-center text-[11px]">0</span></button></div>
+</div>
+</nav>
+
+<section class="pt-32 lg:pt-40 max-w-[1440px] mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center relative">
+<div class="absolute top-20 -left-20 w-80 h-80 bg-[#FF4D7A]/15 blur-[80px] rounded-full"></div>
+<div class="absolute top-10 right-0 w-[500px] h-[500px] bg-[#FFC7D6]/30 blur-[100px] rounded-full"></div>
+
+<div class="relative z-10">
+<h1 class="syne text-[54px] lg:text-[84px] leading-[0.85] font-[800] tracking-tight"><span class="text-[#FF4D7A]">Be-youtiful</span><br>bespoke<br>Collections</h1>
+<p class="mt-6 max-w-[420px] text-[16px] leading-relaxed opacity-60">Handcrafted skincare & wellness, tailored just for you. Designed in Africa, loved globally. For Africans, by Africans.</p>
+<div class="mt-8 flex gap-3">
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="bg-[#FF4D7A] text-white px-8 h-[52px] rounded-full font-bold text-[13px] hover:scale-[1.02] transition flex gap-2 items-center">Shop Now →</button>
+<button class="border border-black px-8 h-[52px] rounded-full font-bold text-[13px] hover:bg-black hover:text-white transition">Explore Collections</button>
+</div>
+<div class="mt-8 flex gap-3"><span class="border rounded-full px-4 py-2 text-[11px] flex gap-2 items-center"><span class="w-4 h-4 rounded-full border-2 border-[#FF4D7A] grid place-items-center">✓</span> Free Shipping over $50</span><span class="border rounded-full px-4 py-2 text-[11px]">🌿 Clean • Vegan • Cruelty-Free</span></div>
+</div>
+
+<div class="relative lg:h-[620px] flex justify-center items-center">
+<div class="w-[330px] h-[600px] bg-black rounded-[44px] p-3 shadow-[0_40px_80px_rgba(0,0,0,.3)] float relative z-10">
+<div class="w-full h-full bg-white rounded-[36px] overflow-hidden relative">
+<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600" class="w-full h-[70%] object-cover">
+<div class="p-4"><div class="text-[11px] opacity-50">Product</div><h4 class="font-bold mt-1">Hydrating Rose Serum</h4><p class="text-[11px] opacity-60 mt-1">50ml • Rose + Hyaluronic Acid</p><div class="mt-2 text-[11px]">★★★★★ 4.9 (1.2k reviews)</div><div class="mt-3 bg-[#FFE8ED] rounded-xl p-3"><div class="text-[11px] font-bold">✨ AI Tip</div><div class="text-[11px] mt-1 opacity-70">Customers love this for dry skin • +28% repeat purchase</div><button class="mt-3 w-full bg-[#FF4D7A] text-white h-9 rounded-full text-[12px] font-bold">Add to Cart — $42.00</button></div></div>
+</div></div>
+
+<div class="absolute right-0 top-20 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-xl border w-[210px] float2 z-20">
+<div class="flex gap-2 items-center"><span class="text-[#FF4D7A]">↗</span><span class="font-bold text-[18px]">Sales<br>+28%</span></div><div class="text-[11px] opacity-60 mt-1">vs last month • 1,240 orders</div>
+</div>
+<div class="absolute right-0 bottom-24 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-xl border w-[210px] float z-20">
+<div class="flex gap-2"><span>🧠</span><span class="font-bold text-[16px]">AI Insights</span></div><div class="text-[11px] opacity-60 mt-2 leading-tight">1.2k personalized recommendations • +14% conversion</div>
+</div>
+</div>
+</section>
+
+<section id="divisions" class="max-w-[1440px] mx-auto px-6 lg:px-8 py-16 grid md:grid-cols-4 gap-5">
+<div class="bg-black text-white rounded-[24px] p-6 md:col-span-2 relative overflow-hidden card-lift"><div class="absolute top-0 right-0 w-64 h-64 bg-[#D9F99D]/20 blur-[60px] rounded-full"></div><div class="relative"><span class="bg-[#D9F99D] text-black px-3 py-1 rounded-full text-[10px] font-bold">VISSION TECH • TECH ARM</span><h3 class="syne text-[24px] font-bold mt-4">Domain + Hosting + Websites</h3><p class="text-[12px] text-white/60 mt-2">We host EBEN & CO GROUP -.com.gh GHS 150/yr, Hosting GHS 300/yr, Business Emails, 99.9% uptime Accra.</p></div></div>
+<div class="bg-white border rounded-[24px] p-6 card-lift"><h4 class="font-bold">EBEN AGRO</h4><p class="text-[11px] opacity-60 mt-2">Shea, cocoa, moringa sourcing</p></div>
+<div class="bg-white border rounded-[24px] p-6 card-lift"><h4 class="font-bold">MANUFACTURING</h4><p class="text-[11px] opacity-60 mt-2">Made in Ghana</p></div>
+</section>
+
+<section id="shop" class="max-w-[1440px] mx-auto px-6 lg:px-8 py-10">
+<div class="flex flex-wrap justify-between gap-4 mb-8"><h2 class="syne text-[36px] font-bold">Bespoke Essentials</h2><div class="flex gap-2"><button class="cat active bg-black text-white px-5 h-9 rounded-full text-[12px]" data-cat="all">All</button><button class="cat border px-5 h-9 rounded-full text-[12px]" data-cat="skincare">Skincare</button><button class="cat border px-5 h-9 rounded-full text-[12px]" data-cat="body">Body</button><button class="cat border px-5 h-9 rounded-full text-[12px]" data-cat="tech">Vission Tech</button></div></div>
+<div id="grid" class="grid grid-cols-2 lg:grid-cols-4 gap-5"></div>
+</section>
+
+<section class="bg-[#121212] text-white rounded-[32px] max-w-[1440px] mx-auto mx-4 lg:mx-auto p-8 lg:p-14 grid lg:grid-cols-2 gap-10 my-12">
+<div><div class="text-[#D9F99D] text-[10px] tracking-widest font-bold">BUILD YOUR WEALTH</div><h2 class="syne text-[44px] leading-[0.9] font-bold mt-4">Turn today's income into tomorrow's opportunity</h2><p class="mt-4 opacity-60 text-[13px] max-w-[400px]">Every Shop Afrik purchase gives 12% back to Vission Pay wallet. Invest in farms, earn dividends.</p><button class="mt-6 bg-[#D9F99D] text-black px-6 h-11 rounded-full font-bold text-[12px]">OPEN WEALTH DASHBOARD →</button></div>
+<div class="bg-[#1E1E1E] rounded-[24px] p-6 border border-white/10"><div class="flex justify-between"><span class="text-[12px] font-bold">Wealth Dashboard • Vission Pay</span><span class="bg-[#D9F99D] text-black text-[10px] px-3 py-1 rounded-full">LIVE</span></div><div class="mt-6 bg-white text-black rounded-xl p-4 flex justify-between"><span>Portfolio Value</span><span class="font-bold syne">GHS 3,450</span></div><div class="mt-4 grid grid-cols-2 gap-3"><div class="bg-white/5 rounded-xl p-3"><div class="text-[10px] opacity-50">EARNINGS</div><div class="font-bold">GHS 420</div></div><div class="bg-white/5 rounded-xl p-3"><div class="text-[10px] opacity-50">POINTS</div><div class="font-bold">1,240</div></div></div></div>
+</section>
+
+<div id="searchModal" class="fixed inset-0 bg-black/40 backdrop-blur-xl z-[100] hidden"><div class="max-w-[600px] mx-auto mt-[20vh] bg-white rounded-[24px] p-6 m-4"><div class="flex items-center border rounded-full px-5 h-14"><span>⌕</span><input id="searchInput" placeholder="Search shea, oil, hosting..." class="flex-1 outline-none bg-transparent ml-3"><button id="closeSearch">✕</button></div><div id="searchRes" class="mt-4 space-y-2"></div></div></div>
+
+<div id="cartDrawer" class="fixed inset-0 z-[100] hidden"><div id="cartOverlay" class="absolute inset-0 bg-black/30"></div><div id="cartPanel" class="absolute right-0 top-0 h-full w-[92%] max-w-[420px] bg-white p-6 flex flex-col translate-x-full transition duration-500"><div class="flex justify-between"><h3 class="syne text-2xl font-bold">Cart (<span id="cartCount2">0</span>)</h3><button id="closeCart" class="w-8 h-8 rounded-full border">✕</button></div><div id="cartItems" class="flex-1 overflow-auto mt-6 space-y-4"></div><div class="border-t pt-4"><div class="flex justify-between font-bold"><span>Total</span><span id="cartTotal">GHS 0</span></div><button class="w-full bg-black text-white h-12 rounded-full mt-4 font-bold">CHECKOUT →</button></div></div></div>
+
+<div id="prodModal" class="fixed inset-0 z-[100] hidden"><div class="absolute inset-0 bg-black/50 backdrop-blur"></div><div class="absolute inset-0 grid place-items-center p-4"><div class="bg-white rounded-[28px] max-w-[850px] w-full grid lg:grid-cols-2 overflow-hidden"><div id="mImg" class="bg-gray-100"></div><div class="p-8"><div id="mInfo"></div><div class="mt-6 flex gap-3"><div class="border rounded-full px-4 h-12 flex items-center gap-3"><button onclick="qty--;if(qty<1)qty=1;document.getElementById('qty').textContent=qty">−</button><span id="qty">1</span><button onclick="qty++;document.getElementById('qty').textContent=qty">+</button></div><button id="mAdd" class="flex-1 bg-black text-white h-12 rounded-full font-bold">Add to Cart</button></div></div></div></div></div>
+
+<script>
+const prods=[
+{id:1,name:"Shea Glow Set",cat:"skincare",price:245,old:320,rating:4.9,reviews:342,img:"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600",badge:"BESTSELLER"},
+{id:2,name:"Kente Hair Butter",cat:"skincare",price:180,rating:4.8,reviews:201,img:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600",badge:"NEW"},
+{id:3,name:"Baobab Body Oil",cat:"body",price:165,rating:4.9,reviews:412,img:"https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600"},
+{id:4,name:"Charcoal Detox Soap",cat:"skincare",price:65,rating:4.7,reviews:98,img:"https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=600"},
+{id:5,name:"Vission Hosting 1 Year",cat:"tech",price:300,rating:5.0,reviews:89,img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",badge:"VISSION TECH"},
+{id:6,name:"Domain.com.gh",cat:"tech",price:150,rating:5.0,reviews:120,img:"https://images.unsplash.com/photo-1623479322729-28b25c16b011?w=600",badge:"TECH"},
+{id:7,name:"Moringa Repair Mask",cat:"skincare",price:210,rating:4.9,reviews:176,img:"https://images.unsplash.com/photo-1598440942776-51211c6d4d2b?w=600"},
+{id:8,name:"Cocoa Cashmere Lotion",cat:"body",price:145,rating:4.8,reviews:254,img:"https://images.unsplash.com/photo-1570554886111-e80fc1555b29?w=600",badge:"-20%"},
+];
+let cart=[],wishlist=new Set(),qty=1,cur=null;
+function render(list){document.getElementById('grid').innerHTML=list.map(p=>`
+<div class="bg-white rounded-[20px] border overflow-hidden card-lift group">
+<div class="relative aspect-[4/5] bg-[#F5F5F5] overflow-hidden">
+<img src="${p.img}" class="w-full h-full object-cover group-hover:scale-[1.06] transition duration-700">
+${p.badge?`<span class="absolute top-3 left-3 bg-black text-white text-[10px] px-3 py-1 rounded-full font-bold">${p.badge}</span>`:''}
+<button onclick="toggleWish(${p.id});event.stopPropagation()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full grid place-items-center shadow ${wishlist.has(p.id)?'text-[#FF4D7A]':''}">♡</button>
+<div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition"><button onclick="addCart(${p.id})" class="w-full bg-black text-white h-9 rounded-full text-[11px] font-bold">Quick Add +</button></div>
+</div>
+<div class="p-4 cursor-pointer" onclick="openModal(${p.id})"><div class="flex justify-between"><h4 class="font-bold text-[13px] max-w-[70%] leading-tight">${p.name}</h4><span class="text-[11px]">★ ${p.rating} <span class="opacity-40">(${p.reviews})</span></span></div><div class="mt-2 flex gap-2 items-center"><span class="font-bold syne">GHS ${p.price}</span>${p.old?`<span class="line-through text-[11px] opacity-40">GHS ${p.old}</span>`:''}</div><div class="text-[10px] tracking-widest opacity-40 mt-1">${p.cat.toUpperCase()}</div></div>
+</div>`).join('');}
+function addCart(id,q=1){let ex=cart.find(c=>c.id===id);if(ex)ex.q+=q;else cart.push({id,q});upd();openCart();}
+function upd(){let t=cart.reduce((s,c)=>{let p=prods.find(x=>x.id===c.id);return s+p.price*c.q},0);document.getElementById('cartTotal').textContent='GHS '+t;document.getElementById('cartCount').textContent=cart.reduce((s,c)=>s+c.q,0);document.getElementById('cartCount2').textContent=cart.reduce((s,c)=>s+c.q,0);document.getElementById('cartItems').innerHTML=cart.map(c=>{let p=prods.find(x=>x.id===c.id);return `<div class="flex gap-3"><img src="${p.img}" class="w-14 h-14 rounded-xl object-cover"><div class="flex-1"><div class="text-[12px] font-bold">${p.name}</div><div class="text-[11px] opacity-50">GHS ${p.price} x ${c.q}</div></div><button onclick="cart=cart.filter(x=>x.id!==${c.id});upd()">✕</button></div>`}).join('')||'<div class="py-20 text-center opacity-40 text-[12px]">Empty</div>';}
+function toggleWish(id){if(wishlist.has(id))wishlist.delete(id);else wishlist.add(id);document.getElementById('wishCount').textContent=wishlist.size;render(prods);}
+function openModal(id){cur=prods.find(x=>x.id===id);qty=1;document.getElementById('qty').textContent=1;document.getElementById('mImg').innerHTML=`<img src="${cur.img}" class="w-full h-full object-cover aspect-[4/5]">`;document.getElementById('mInfo').innerHTML=`<span class="bg-[#D9F99D] px-3 py-1 rounded-full text-[10px] font-bold">${cur.cat.toUpperCase()}</span><h3 class="syne text-[28px] font-bold mt-3">${cur.name}</h3><div class="mt-2 text-[12px]">★ ${cur.rating} (${cur.reviews} reviews)</div><p class="mt-4 text-[13px] opacity-60">Premium Ghana-made, ethically sourced, lab-tested. Hosted by Vission Tech.</p><div class="mt-4 font-bold text-xl syne">GHS ${cur.price}</div>`;document.getElementById('prodModal').classList.remove('hidden');}
+document.getElementById('mAdd').onclick=()=>{if(cur){addCart(cur.id,qty);document.getElementById('prodModal').classList.add('hidden');}};
+document.getElementById('prodModal').onclick=e=>{if(e.target.id==='prodModal'||e.target.classList.contains('bg-black/50'))document.getElementById('prodModal').classList.add('hidden')};
+function openCart(){document.getElementById('cartDrawer').classList.remove('hidden');setTimeout(()=>document.getElementById('cartPanel').classList.remove('translate-x-full'),10);}
+function closeCart(){document.getElementById('cartPanel').classList.add('translate-x-full');setTimeout(()=>document.getElementById('cartDrawer').classList.add('hidden'),300);}
+document.getElementById('cartBtn').onclick=openCart;document.getElementById('closeCart').onclick=closeCart;document.getElementById('cartOverlay').onclick=closeCart;
+document.getElementById('searchBtn').onclick=()=>document.getElementById('searchModal').classList.remove('hidden');
+document.getElementById('closeSearch').onclick=()=>document.getElementById('searchModal').classList.add('hidden');
+document.getElementById('searchInput').oninput=e=>{let q=e.target.value.toLowerCase();let f=prods.filter(p=>p.name.toLowerCase().includes(q));document.getElementById('searchRes').innerHTML=f.map(p=>`<div onclick="openModal(${p.id});document.getElementById('searchModal').classList.add('hidden')" class="flex gap-3 p-3 hover:bg-black/5 rounded-xl cursor-pointer"><img src="${p.img}" class="w-12 h-12 rounded-lg"><div><div class="text-[12px] font-bold">${p.name}</div><div class="text-[11px] opacity-50">GHS ${p.price}</div></div></div>`).join('');};
+document.querySelectorAll('.cat').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.remove('bg-black','text-white','active'));b.classList.add('bg-black','text-white','active');let c=b.dataset.cat;render(c==='all'?prods:prods.filter(p=>p.cat===c));});
+render(prods);
+</script>
+</body>
+</html>
