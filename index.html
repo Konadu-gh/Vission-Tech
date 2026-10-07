@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EBEN & CO. LIMITED | Rooted in Africa. Built for Tomorrow.</title>
+  <meta name="description" content="Eben & Co. Limited is a Ghana-based business creating sustainable products, investment opportunities and partnerships for long-term growth." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'eben-green': {50:'#f0f7f4',100:'#dceee6',800:'#0f3d2a',900:'#0a2b1d',950:'#061c12'},
+            'eben-gold': {DEFAULT:'#d4a017',light:'#e8c04a',dark:'#b8860b'}
+          },
+          fontFamily: {serif:['Playfair Display','Georgia','serif'],sans:['Inter','system-ui','sans-serif']}
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 antialiased font-sans">
+
+  <!-- Search Overlay (FIXED - hidden by default) -->
+  <div id="search-overlay" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm items-start justify-center pt-24 px-4" style="display: none;">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden">
+      <div class="flex items-center gap-3 p-4 border-b">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input id="search-input" type="text" placeholder="Search products, topics..." class="flex-1 text-lg outline-none placeholder-gray-400">
+        <button id="search-close" class="p-2 hover:bg-gray-100 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <div class="p-4 text-sm text-gray-500">Popular: <a href="shop.html" class="text-eben-green-900 font-medium hover:underline">Woven Bags</a> · <a href="shop.html" class="text-eben-green-900 font-medium hover:underline">Bamboo</a> · <a href="invest.html" class="text-eben-green-900 font-medium hover:underline">Investment</a></div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-overlay" class="fixed inset-0 z-[90] bg-black/40"></div>
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-[95] shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between p-5 border-b">
+      <h3 class="font-serif text-xl font-medium">Your Cart</h3>
+      <button id="cart-close" class="p-2 hover:bg-gray-100 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5"></div>
+    <div id="cart-empty" class="flex-1 flex flex-col items-center justify-center text-gray-400 p-8">
+      <svg class="w-16 h-16 mb-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <p class="font-medium">Your cart is empty</p>
+      <a href="shop.html" class="mt-4 text-eben-gold font-semibold hover:underline">Continue Shopping</a>
+    </div>
+    <div class="p-5 border-t space-y-4">
+      <div class="flex justify-between text-lg font-semibold"><span>Total</span><span id="cart-total">GHS 0.00</span></div>
+      <button class="w-full py-3.5 rounded-xl btn-primary font-semibold">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-eben-green-950/95 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-eben-gold to-eben-gold-dark flex items-center justify-center shadow-lg">
+            <svg class="w-5 h-5 text-eben-green-950" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="text-white font-semibold text-lg tracking-wide">EBEN & CO.</span>
+            <span class="text-eben-gold/80 text-[10px] font-medium tracking-[0.2em] uppercase">Limited</span>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-7">
+          <a href="index.html" class="nav-link active text-white text-sm font-medium">Home</a>
+          <a href="about.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">About</a>
+          <a href="shop.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">Shop</a>
+          <a href="invest.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">Invest</a>
+          <a href="impact.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">Impact</a>
+          <a href="faq.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">FAQ</a>
+          <a href="contact.html" class="nav-link text-white/80 text-sm font-medium hover:text-eben-gold">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2 md:gap-3">
+          <button id="search-btn" class="p-2 text-white/80 hover:text-white" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></button>
+          <button id="cart-btn" class="relative p-2 text-white/80 hover:text-white" aria-label="Cart">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            <span id="cart-count" class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-eben-gold text-eben-green-950 text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </button>
+          <a href="contact.html" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full btn-primary text-sm font-semibold">Get Started</a>
+          <button id="menu-toggle" class="lg:hidden p-2 text-white" aria-label="Menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-eben-green-950 border-t border-white/10">
+      <div class="px-4 py-4 space-y-1">
+        <a href="index.html" class="block text-white font-medium py-2.5">Home</a>
+        <a href="about.html" class="block text-white/80 font-medium py-2.5">About</a>
+        <a href="shop.html" class="block text-white/80 font-medium py-2.5">Shop</a>
+        <a href="invest.html" class="block text-white/80 font-medium py-2.5">Invest</a>
+        <a href="impact.html" class="block text-white/80 font-medium py-2.5">Impact</a>
+        <a href="faq.html" class="block text-white/80 font-medium py-2.5">FAQ</a>
+        <a href="contact.html" class="block text-white/80 font-medium py-2.5">Contact</a>
+        <a href="contact.html" class="mt-3 inline-flex px-5 py-2.5 rounded-full btn-primary text-sm font-semibold">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center pt-20" style="background: linear-gradient(to right, rgba(6,28,18,0.8) 0%, rgba(6,28,18,0.45) 50%, rgba(6,28,18,0.2) 100%), url('assets/hero-bg.jpg') center right / cover no-repeat;">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 md:py-24">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-4 mb-6 text-white/90 text-xs sm:text-sm font-medium tracking-wider uppercase">
+          <span>Sustainable Africa</span>
+          <span class="text-white/40">|</span>
+          <span>Lasting Growth</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] text-white mb-6">
+          Rooted in Africa.<br><span class="text-eben-gold">Built for Tomorrow.</span>
+        </h1>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-xl mb-10">
+          Eben & Co. Limited is a Ghana-based business creating sustainable products, investment opportunities and partnerships for long-term growth.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="shop.html" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full btn-primary text-sm font-semibold">Explore Our Products <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          <a href="invest.html" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full btn-outline-white text-sm font-semibold">Discover Investment <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movement -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded-full bg-eben-green-900 flex items-center justify-center">
+              <svg class="w-4 h-4 text-eben-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+            </div>
+            <span class="text-eben-green-900 font-semibold tracking-wide text-sm uppercase">EBEN & CO.</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-eben-green-950 leading-tight mb-6">More Than a Business.<br><span class="text-eben-green-800">A Movement.</span></h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">From strong foundations, sustainable growth. We create products that honor African heritage while building lasting value for communities, investors, and the planet.</p>
+          <a href="about.html" class="inline-flex items-center gap-2 text-eben-green-900 font-semibold hover:text-eben-gold">Learn our story <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=900&q=80" alt="Bamboo" class="w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-6 left-4 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3 feature-card">
+            <div class="w-12 h-12 rounded-full bg-eben-green-50 flex items-center justify-center"><svg class="w-6 h-6 text-eben-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg></div>
+            <div><p class="font-semibold text-eben-green-950 text-sm">Sustainable</p><p class="text-gray-500 text-xs">Products</p></div>
+          </div>
+          <div class="absolute -top-4 right-2 bg-white rounded-xl shadow-xl p-4 feature-card">
+            <div class="flex items-center gap-3">
+              <img src="https://flagcdn.com/w40/gh.png" alt="Ghana" class="w-8 rounded-sm">
+              <div><p class="font-semibold text-eben-green-950 text-sm">Proudly Ghanaian</p><p class="text-gray-500 text-xs">Globally Minded</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="py-16 bg-eben-green-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="shop.html" class="bg-white rounded-2xl p-8 shadow-sm feature-card text-center block">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-eben-green-100 flex items-center justify-center"><svg class="w-7 h-7 text-eben-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+          <h3 class="font-serif text-xl font-medium text-eben-green-950 mb-3">Sustainable Products</h3>
+          <p class="text-gray-600 text-sm">Ethically crafted goods that celebrate African materials and craftsmanship.</p>
+        </a>
+        <a href="invest.html" class="bg-white rounded-2xl p-8 shadow-sm feature-card text-center block">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-eben-gold/20 flex items-center justify-center"><svg class="w-7 h-7 text-eben-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+          <h3 class="font-serif text-xl font-medium text-eben-green-950 mb-3">Investment Opportunities</h3>
+          <p class="text-gray-600 text-sm">Transparent, impact-driven channels designed for long-term shared prosperity.</p>
+        </a>
+        <a href="impact.html" class="bg-white rounded-2xl p-8 shadow-sm feature-card text-center block">
+          <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-eben-green-100 flex items-center justify-center"><svg class="w-7 h-7 text-eben-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <h3 class="font-serif text-xl font-medium text-eben-green-950 mb-3">Real Impact</h3>
+          <p class="text-gray-600 text-sm">Supporting artisans, communities and the environment across Ghana and beyond.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-medium text-eben-green-950 mb-2">Featured Products</h2>
+          <p class="text-gray-600">Handcrafted with care from sustainable materials.</p>
+        </div>
+        <a href="shop.html" class="inline-flex items-center gap-2 text-eben-green-900 font-semibold hover:text-eben-gold">View all products <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="product-card rounded-2xl overflow-hidden bg-gray-50">
+          <div class="aspect-[4/5] overflow-hidden bg-gray-200"><img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&q=80" alt="Tote" class="w-full h-full object-cover"></div>
+          <div class="p-5">
+            <span class="badge badge-green mb-2">Bestseller</span>
+            <h3 class="font-semibold text-eben-green-950 mb-1">Handwoven Tote Bag</h3>
+            <p class="text-gray-500 text-sm mb-3">Natural raffia · Fair trade</p>
+            <div class="flex items-center justify-between">
+              <p class="text-eben-gold font-semibold text-lg">GHS 180</p>
+              <button onclick="addToCart('Handwoven Tote Bag',180,'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=200')" class="px-4 py-2 rounded-full bg-eben-green-900 text-white text-sm font-medium hover:bg-eben-green-800">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card rounded-2xl overflow-hidden bg-gray-50">
+          <div class="aspect-[4/5] overflow-hidden bg-gray-200"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80" alt="Bamboo" class="w-full h-full object-cover"></div>
+          <div class="p-5">
+            <span class="badge badge-gold mb-2">Eco</span>
+            <h3 class="font-semibold text-eben-green-950 mb-1">Bamboo Home Set</h3>
+            <p class="text-gray-500 text-sm mb-3">Sustainable · Durable</p>
+            <div class="flex items-center justify-between">
+              <p class="text-eben-gold font-semibold text-lg">GHS 95</p>
+              <button onclick="addToCart('Bamboo Home Set',95,'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200')" class="px-4 py-2 rounded-full bg-eben-green-900 text-white text-sm font-medium hover:bg-eben-green-800">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card rounded-2xl overflow-hidden bg-gray-50">
+          <div class="aspect-[4/5] overflow-hidden bg-gray-200"><img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&q=80" alt="Kente" class="w-full h-full object-cover"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-eben-green-950 mb-1">Kente Accent Pillow</h3>
+            <p class="text-gray-500 text-sm mb-3">Authentic · Handwoven</p>
+            <div class="flex items-center justify-between">
+              <p class="text-eben-gold font-semibold text-lg">GHS 120</p>
+              <button onclick="addToCart('Kente Accent Pillow',120,'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=200')" class="px-4 py-2 rounded-full bg-eben-green-900 text-white text-sm font-medium hover:bg-eben-green-800">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Teaser -->
+  <section class="py-20 bg-eben-green-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium mb-6">Our Impact in Numbers</h2>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto mb-14">Every purchase and partnership creates real change.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div><p class="font-serif text-4xl md:text-5xl font-medium text-eben-gold mb-2">500+</p><p class="text-white/80">Artisans Supported</p></div>
+        <div><p class="font-serif text-4xl md:text-5xl font-medium text-eben-gold mb-2">12k+</p><p class="text-white/80">Trees & Bamboo Planted</p></div>
+        <div><p class="font-serif text-4xl md:text-5xl font-medium text-eben-gold mb-2">8</p><p class="text-white/80">Communities Empowered</p></div>
+        <div><p class="font-serif text-4xl md:text-5xl font-medium text-eben-gold mb-2">100%</p><p class="text-white/80">Sustainable Materials</p></div>
+      </div>
+      <a href="impact.html" class="inline-flex items-center gap-2 mt-12 px-7 py-3.5 rounded-full btn-primary font-semibold">See Our Full Impact</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-eben-green-950 border-t border-white/10 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-eben-gold to-eben-gold-dark flex items-center justify-center"><svg class="w-4 h-4 text-eben-green-950" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></div>
+            <div><span class="text-white font-semibold">EBEN & CO.</span><span class="text-eben-gold/80 text-xs block tracking-widest uppercase">Limited</span></div>
+          </div>
+          <p class="text-white/50 text-sm">Rooted in Africa. Built for Tomorrow.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Explore</h4>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li><a href="shop.html" class="hover:text-eben-gold">Shop</a></li>
+            <li><a href="invest.html" class="hover:text-eben-gold">Invest</a></li>
+            <li><a href="impact.html" class="hover:text-eben-gold">Impact</a></li>
+            <li><a href="about.html" class="hover:text-eben-gold">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li><a href="faq.html" class="hover:text-eben-gold">FAQ</a></li>
+            <li><a href="contact.html" class="hover:text-eben-gold">Contact</a></li>
+            <li><a href="#" class="hover:text-eben-gold">Shipping & Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Newsletter</h4>
+          <form class="flex gap-2" onsubmit="event.preventDefault();alert('Thank you for subscribing!');">
+            <input type="email" placeholder="Your email" required class="flex-1 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white text-sm placeholder-white/40 focus:outline-none focus:border-eben-gold">
+            <button type="submit" class="px-4 py-2.5 rounded-lg btn-primary text-sm font-semibold">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-sm">© 2026 Eben & Co. Limited. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-white/40 hover:text-eben-gold"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="text-white/40 hover:text-eben-gold"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.792l7.727-8.849L1.54 2.25h7.19l4.255 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
