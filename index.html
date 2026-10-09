@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eben & Co. Limited | Building Africa’s Future</title>
+  <meta name="description" content="Eben & Co. Limited is a diversified Ghanaian group with businesses in technology, agriculture, construction, and consumer goods." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 45%, #fce7f3 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl logo-icon flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-105 transition">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display font-bold text-lg text-gray-900 tracking-tight">Eben & Co.</span>
+            <span class="text-[10px] font-semibold text-blue-600 tracking-[0.2em] uppercase">Limited</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="text-sm font-medium text-gray-900 hover:text-blue-600 transition">Home</a>
+          <a href="#companies" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">Companies</a>
+          <a href="#about" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">About</a>
+          <a href="#impact" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">Impact</a>
+          <a href="#vision" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">Vision</a>
+          <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-md shadow-blue-200">
+            Get Started
+          </a>
+          <button id="menu-toggle" class="lg:hidden p-2 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#home" class="block py-2 text-gray-900 font-medium">Home</a>
+        <a href="#companies" class="block py-2 text-gray-600">Companies</a>
+        <a href="#about" class="block py-2 text-gray-600">About</a>
+        <a href="#impact" class="block py-2 text-gray-600">Impact</a>
+        <a href="#vision" class="block py-2 text-gray-600">Vision</a>
+        <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+        <a href="#contact" class="mt-3 inline-flex px-5 py-2.5 rounded-full bg-blue-600 text-white text-sm font-semibold">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="home" class="hero-gradient pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 text-blue-700 text-xs font-semibold mb-6 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+            Ghanaian Diversified Group
+          </div>
+          
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.12] mb-6">
+            Building the <span class="text-blue-600">future</span> of African enterprise
+          </h1>
+          
+          <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+            Eben & Co. Limited is a dynamic Ghanaian group with businesses spanning technology, agriculture, construction, and consumer goods — creating lasting value across industries.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#companies" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+              Explore Our Companies
+            </a>
+            <a href="#about" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-gray-800 font-semibold border border-gray-200 hover:border-gray-300 transition shadow-sm">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-md">
+            <div class="absolute -top-8 -left-8 w-40 h-40 bg-blue-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -right-6 w-48 h-48 bg-purple-400/20 rounded-full blur-3xl"></div>
+            
+            <div class="relative bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-8 border border-white">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-5 text-white">
+                  <div class="text-3xl font-bold mb-1">4+</div>
+                  <div class="text-sm opacity-90">Companies</div>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-5 text-white">
+                  <div class="text-3xl font-bold mb-1">GHA</div>
+                  <div class="text-sm opacity-90">Based</div>
+                </div>
+                <div class="bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl p-5 text-white col-span-2">
+                  <div class="text-lg font-semibold mb-1">Diversified Portfolio</div>
+                  <div class="text-sm opacity-90">Tech • Agro • Construction • Goods</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="py-10 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-1">4+</div>
+          <div class="text-sm text-gray-600 font-medium">Group Companies</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-1">5+</div>
+          <div class="text-sm text-gray-600 font-medium">Industries</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-1">100%</div>
+          <div class="text-sm text-gray-600 font-medium">Ghanaian Owned</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-1">∞</div>
+          <div class="text-sm text-gray-600 font-medium">Growth Ambition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPANIES ========== -->
+  <section id="companies" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Companies</h2>
+        <p class="text-gray-600 text-lg">A growing family of businesses working together to create real impact across Ghana and beyond.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-2">Vision Tech Ghana</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">Technology solutions, digital innovation, software, and IT services driving modern business transformation.</p>
+          <span class="inline-block text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Technology</span>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-2">Eben Agro</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">Sustainable agriculture, agribusiness, and food systems focused on quality production and long-term growth.</p>
+          <span class="inline-block text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Agriculture</span>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-2">Skyline Construction</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">Quality construction, infrastructure development, and real estate projects built to the highest standards.</p>
+          <span class="inline-block text-xs font-semibold text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Construction</span>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-gray-900 mb-2">Sonic Goods</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">Consumer products and general trading delivering quality goods to homes, offices, and businesses.</p>
+          <span class="inline-block text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Consumer Goods</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-block text-sm font-semibold text-blue-600 mb-3">About the Group</div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">One Group.<br>Multiple Strengths.</h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Eben & Co. Limited brings together specialized companies under one powerful vision — to build sustainable, high-impact businesses that contribute to Ghana’s economic growth.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            From technology and agriculture to construction and consumer goods, each company operates with excellence while sharing the group’s core values.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-10">
+          <h3 class="font-display text-xl font-bold text-gray-900 mb-6">Our Core Values</h3>
+          <div class="space-y-5">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">01</div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Integrity</h4>
+                <p class="text-sm text-gray-600">We do business the right way — honestly and transparently.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">02</div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Innovation</h4>
+                <p class="text-sm text-gray-600">We embrace new ideas and continuously improve.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">03</div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Impact</h4>
+                <p class="text-sm text-gray-600">We measure success by the value we create.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-sm">04</div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Excellence</h4>
+                <p class="text-sm text-gray-600">We pursue quality in everything we do.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== IMPACT ========== -->
+  <section id="impact" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
+        <p class="text-gray-600 text-lg">Through our companies, we contribute to economic growth, job creation, and sustainable development in Ghana.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-hover">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-blue-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Job Creation</h3>
+          <p class="text-gray-600 text-sm">Creating meaningful employment across technology, agriculture, construction and trading.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-hover">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-green-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Economic Growth</h3>
+          <p class="text-gray-600 text-sm">Contributing to Ghana’s economy through productive businesses in key growth sectors.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-hover">
+          <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-purple-100 flex items-center justify-center">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Community Focus</h3>
+          <p class="text-gray-600 text-sm">Supporting local communities through responsible business practices and partnerships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VISION ========== -->
+  <section id="vision" class="py-20 md:py-28 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Our Vision</h2>
+      <p class="text-xl md:text-2xl text-blue-100 leading-relaxed mb-10">
+        To be one of Ghana’s most respected and diversified business groups — creating sustainable value, empowering communities, and shaping the future of African enterprise.
+      </p>
+      <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-blue-700 font-semibold hover:bg-blue-50 transition shadow-lg">
+        Partner With Us
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+        <p class="text-gray-600 text-lg">Interested in partnerships, investments, or learning more about any of our companies?</p>
+      </div>
+
+      <form class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 space-y-5" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.'); this.reset();">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+            <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Subject</label>
+          <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>General Inquiry</option>
+            <option>Partnership Opportunity</option>
+            <option>Investment Interest</option>
+            <option>Vision Tech Ghana</option>
+            <option>Eben Agro</option>
+            <option>Skyline Construction</option>
+            <option>Sonic Goods</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+          <textarea rows="5" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-gray-900 text-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 rounded-xl logo-icon flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-display font-bold text-lg">Eben & Co.</span>
+              <span class="block text-[10px] text-blue-400 tracking-widest uppercase font-semibold">Limited</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm">Building Africa’s future through diversified businesses based in Ghana.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Our Companies</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="#companies" class="hover:text-white transition">Vision Tech Ghana</a></li>
+            <li><a href="#companies" class="hover:text-white transition">Eben Agro</a></li>
+            <li><a href="#companies" class="hover:text-white transition">Skyline Construction</a></li>
+            <li><a href="#companies" class="hover:text-white transition">Sonic Goods</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#impact" class="hover:text-white transition">Our Impact</a></li>
+            <li><a href="#vision" class="hover:text-white transition">Vision</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li>Accra, Ghana</li>
+            <li>info@ebenandco.com</li>
+            <li>+233 XX XXX XXXX</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">© 2026 Eben & Co. Limited. All rights reserved.</p>
+        <p class="text-gray-500 text-sm">Proudly Ghanaian 🇬🇭</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+  </script>
+</body>
+</html>
