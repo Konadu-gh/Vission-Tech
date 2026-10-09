@@ -1,0 +1,51 @@
+/* Eben & Co. Limited - Shared Styles */
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 45%, #fce7f3 100%);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+}
+
+/* Slideshow */
+.slide {
+  display: none;
+  animation: fadeIn 0.8s ease;
+}
+.slide.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active {
+  background: #2563eb;
+  transform: scale(1.2);
+}
