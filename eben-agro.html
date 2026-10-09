@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eben Agro | Eben & Co. Limited</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif'],display:['Plus Jakarta Sans','Inter','sans-serif']}}}}</script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- NAV -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl logo-icon flex items-center justify-center shadow-lg shadow-blue-200">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display font-bold text-lg">Eben & Co.</span>
+            <span class="text-[10px] font-semibold text-blue-600 tracking-[0.2em] uppercase">Limited</span>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-7">
+          <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Home</a>
+          <a href="vision-tech.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Vision Tech</a>
+          <a href="eben-agro.html" class="text-sm font-medium text-green-600">Eben Agro</a>
+          <a href="skyline-construction.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skyline</a>
+          <a href="sonic-goods.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Sonic Goods</a>
+          <a href="index.html#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-full bg-green-600 text-white text-sm font-semibold">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO WITH IMAGE -->
+  <section class="pt-28 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef292d?w=1600&q=80" alt="Farm field" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-green-900/90 to-green-800/70"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl text-white">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-sm font-medium mb-5">Agriculture Division</div>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5">Eben Agro</h1>
+        <p class="text-xl text-green-100 mb-8 leading-relaxed">Sustainable agriculture and agribusiness focused on quality production, food security and long-term growth for Ghanaian farmers and communities.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="px-7 py-3.5 rounded-full bg-white text-green-700 font-semibold hover:bg-green-50 transition">Our Focus Areas</a>
+          <a href="index.html#contact" class="px-7 py-3.5 rounded-full border border-white/40 text-white font-semibold hover:bg-white/10 transition">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT WITH IMAGE -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <h2 class="font-display text-3xl font-bold mb-5">Growing with Purpose</h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-5">Eben Agro is the agricultural arm of Eben & Co. Limited. We are committed to modern, sustainable farming practices that increase productivity while protecting the land for future generations.</p>
+          <p class="text-gray-600 leading-relaxed mb-6">We work with farmers, cooperatives and partners to improve crop quality, introduce better techniques, and create reliable market access for agricultural produce.</p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-medium">Crop Production</span>
+            <span class="px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-medium">Agribusiness</span>
+            <span class="px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-medium">Farmer Support</span>
+            <span class="px-4 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-medium">Sustainable Practices</span>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-xl">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Farmers working" class="w-full h-80 object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE GALLERY -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-2xl overflow-hidden h-48">
+          <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&q=80" alt="Crops" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48">
+          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="Harvest" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Field" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="rounded-2xl overflow-hidden h-48">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Agriculture" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="font-display text-3xl font-bold mb-3">Focus Areas</h2>
+        <p class="text-gray-600">Key areas where Eben Agro creates impact</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&q=80" alt="Crop production" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Crop Production</h3>
+          <p class="text-gray-600 text-sm">Cultivation of quality crops using improved methods that increase yield and maintain soil health.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=400&q=80" alt="Agribusiness" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Agribusiness Development</h3>
+          <p class="text-gray-600 text-sm">Building profitable agricultural enterprises and linking producers to reliable markets.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef292d?w=400&q=80" alt="Farmer support" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Farmer Capacity Building</h3>
+          <p class="text-gray-600 text-sm">Training and support programs that help smallholder farmers adopt better practices.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1574323342124-8c45f6f2c0b3?w=400&q=80" alt="Inputs" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Input & Supply Support</h3>
+          <p class="text-gray-600 text-sm">Facilitating access to quality seeds, tools and other essential farming inputs.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80" alt="Value addition" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Value Addition</h3>
+          <p class="text-gray-600 text-sm">Exploring processing and packaging opportunities to increase the value of farm produce.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80" alt="Sustainability" class="w-full h-40 object-cover rounded-xl mb-4">
+          <h3 class="font-display font-bold text-lg mb-2">Sustainability</h3>
+          <p class="text-gray-600 text-sm">Promoting environmentally responsible farming that protects land and water resources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-green-600 text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="font-display text-3xl font-bold mb-4">Partner with Eben Agro</h2>
+      <p class="text-green-100 mb-8">Whether you are a farmer, investor or organization interested in agriculture, we would like to hear from you.</p>
+      <a href="index.html#contact" class="inline-flex px-8 py-3.5 rounded-full bg-white text-green-700 font-semibold hover:bg-green-50 transition">Contact Eben Agro</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+      <p>© 2026 Eben Agro — A company of Eben & Co. Limited</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-white">Group Home</a>
+        <a href="vision-tech.html" class="hover:text-white">Vision Tech</a>
+        <a href="skyline-construction.html" class="hover:text-white">Skyline</a>
+        <a href="sonic-goods.html" class="hover:text-white">Sonic Goods</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
