@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eben & Co. Limited | Building Africa’s Future</title>
+  <meta name="description" content="Eben & Co. Limited - A diversified Ghanaian group with Vision Tech Ghana, Eben Agro, Skyline Construction and Sonic Goods." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 40%, #fce7f3 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.35s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo-mark {
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5);
+    }
+
+    .slide { display: none; animation: fadeIn 0.8s ease; }
+    .slide.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #cbd5e1; cursor: pointer; transition: all 0.3s;
+    }
+    .dot.active { background: #2563eb; transform: scale(1.25); }
+
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl logo-mark flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-105 transition">
+            <!-- Professional Logo Mark -->
+            <svg class="w-6 h-6 text-white" viewBox="0 0 40 40" fill="none">
+              <path d="M8 28V12h8.5c4.2 0 7 2.3 7 6s-2.8 6-7 6H14v4H8zm6-9h2.2c1.6 0 2.5-.8 2.5-2s-.9-2-2.5-2H14v4z" fill="currentColor"/>
+              <path d="M28 12h6v4h-4v3h3.5v4H30v5h-2V12z" fill="currentColor" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="flex flex-col leading-none">
+            <span class="font-display font-bold text-lg text-gray-900 tracking-tight">Eben & Co.</span>
+            <span class="text-[10px] font-semibold text-blue-600 tracking-[0.18em] uppercase">Limited</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7">
+          <a href="index.html" class="text-sm font-medium text-blue-600">Home</a>
+          <a href="vision-tech.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Vision Tech</a>
+          <a href="eben-agro.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Eben Agro</a>
+          <a href="skyline-construction.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Skyline</a>
+          <a href="sonic-goods.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Sonic Goods</a>
+          <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-blue-600">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-md shadow-blue-200">Get Started</a>
+          <button id="menu-toggle" class="lg:hidden p-2 text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-2">
+        <a href="index.html" class="block py-2 font-medium text-blue-600">Home</a>
+        <a href="vision-tech.html" class="block py-2 text-gray-600">Vision Tech Ghana</a>
+        <a href="eben-agro.html" class="block py-2 text-gray-600">Eben Agro</a>
+        <a href="skyline-construction.html" class="block py-2 text-gray-600">Skyline Construction</a>
+        <a href="sonic-goods.html" class="block py-2 text-gray-600">Sonic Goods</a>
+        <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SLIDESHOW -->
+  <section class="relative pt-20 overflow-hidden">
+    <div class="relative h-[520px] md:h-[600px]">
+      
+      <!-- Slide 1 -->
+      <div class="slide active absolute inset-0 hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 h-full flex items-center">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 text-blue-700 text-xs font-semibold mb-5 shadow-sm">
+              Ghanaian Diversified Group
+            </div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-5">
+              Building the <span class="text-blue-600">future</span> of African enterprise
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+              Eben & Co. Limited unites technology, agriculture, construction and consumer goods under one powerful vision for Ghana and beyond.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#companies" class="px-7 py-3.5 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">Explore Companies</a>
+              <a href="#about" class="px-7 py-3.5 rounded-full bg-white border border-gray-200 font-semibold hover:border-gray-300 transition">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Technology">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-indigo-900/70"></div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+          <div class="max-w-2xl text-white">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-sm font-medium mb-5">Technology Division</div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+              Powering businesses with <span class="text-blue-200">Vision Tech Ghana</span>
+            </h1>
+            <p class="text-lg text-blue-100 mb-8 max-w-lg">Innovative IT solutions, software development and digital transformation for modern enterprises.</p>
+            <a href="vision-tech.html" class="inline-flex px-7 py-3.5 rounded-full bg-white text-blue-800 font-semibold hover:bg-blue-50 transition">Visit Vision Tech</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef292d?w=1800&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Agriculture">
+        <div class="absolute inset-0 bg-gradient-to-r from-green-900/85 to-emerald-900/70"></div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+          <div class="max-w-2xl text-white">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-sm font-medium mb-5">Agriculture Division</div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+              Growing Ghana with <span class="text-green-200">Eben Agro</span>
+            </h1>
+            <p class="text-lg text-green-100 mb-8 max-w-lg">Sustainable agriculture and agribusiness focused on quality, productivity and food security.</p>
+            <a href="eben-agro.html" class="inline-flex px-7 py-3.5 rounded-full bg-white text-green-800 font-semibold hover:bg-green-50 transition">Visit Eben Agro</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1800&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Construction">
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-900/85 to-amber-900/70"></div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+          <div class="max-w-2xl text-white">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 text-sm font-medium mb-5">Construction Division</div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+              Building excellence with <span class="text-orange-200">Skyline Construction</span>
+            </h1>
+            <p class="text-lg text-orange-100 mb-8 max-w-lg">Quality construction, infrastructure and real estate development projects across Ghana.</p>
+            <a href="skyline-construction.html" class="inline-flex px-7 py-3.5 rounded-full bg-white text-orange-800 font-semibold hover:bg-orange-50 transition">Visit Skyline</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        <div class="dot active" onclick="showSlide(0)"></div>
+        <div class="dot" onclick="showSlide(1)"></div>
+        <div class="dot" onclick="showSlide(2)"></div>
+        <div class="dot" onclick="showSlide(3)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANIES WITH PICTURES + LONGER DESCRIPTIONS -->
+  <section id="companies" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Group Companies</h2>
+        <p class="text-gray-600 text-lg">Four specialized businesses working together under Eben & Co. Limited to create lasting value across Ghana.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Vision Tech -->
+        <a href="vision-tech.html" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover flex flex-col">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Vision Tech Ghana" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-7 flex-1 flex flex-col">
+            <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Technology</span>
+            <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Vision Tech Ghana</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+              Provides innovative IT solutions, custom software, web & mobile applications, and digital transformation services that help Ghanaian businesses operate more efficiently and compete in the modern economy.
+            </p>
+            <span class="text-blue-600 text-sm font-semibold">Learn more →</span>
+          </div>
+        </a>
+
+        <!-- Eben Agro -->
+        <a href="eben-agro.html" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover flex flex-col">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef292d?w=800&q=80" alt="Eben Agro" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-7 flex-1 flex flex-col">
+            <span class="text-xs font-semibold text-green-600 uppercase tracking-wider mb-2">Agriculture</span>
+            <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Eben Agro</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+              Focuses on sustainable agriculture and agribusiness. We support quality crop production, farmer capacity building, and value-chain development to improve food security and create economic opportunities.
+            </p>
+            <span class="text-green-600 text-sm font-semibold">Learn more →</span>
+          </div>
+        </a>
+
+        <!-- Skyline -->
+        <a href="skyline-construction.html" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover flex flex-col">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Skyline Construction" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-7 flex-1 flex flex-col">
+            <span class="text-xs font-semibold text-orange-600 uppercase tracking-wider mb-2">Construction</span>
+            <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Skyline Construction Limited</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+              Delivers quality residential, commercial and infrastructure projects. From concept to completion, we focus on strong workmanship, clear communication and durable results that stand the test of time.
+            </p>
+            <span class="text-orange-600 text-sm font-semibold">Learn more →</span>
+          </div>
+        </a>
+
+        <!-- Sonic Goods -->
+        <a href="sonic-goods.html" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover flex flex-col">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Sonic Goods" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-7 flex-1 flex flex-col">
+            <span class="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Consumer Goods</span>
+            <h3 class="font-display font-bold text-xl text-gray-900 mb-3">Sonic Goods</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5 flex-1">
+              Supplies quality consumer products and general merchandise to homes, offices and businesses. We focus on reliable sourcing, competitive pricing and consistent distribution across Ghana.
+            </p>
+            <span class="text-purple-600 text-sm font-semibold">Learn more →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Eben & Co. Limited</h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-5">
+            Eben & Co. Limited is a Ghanaian diversified business group established to create sustainable value across multiple high-growth sectors.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Through our subsidiaries — Vision Tech Ghana, Eben Agro, Skyline Construction Limited and Sonic Goods — we deliver quality products and services while contributing to national development and job creation.
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+          <h3 class="font-display font-bold text-xl mb-5">Our Core Values</h3>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">1</div>
+              <div><h4 class="font-semibold">Integrity</h4><p class="text-sm text-gray-600">Honest and transparent in all dealings</p></div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">2</div>
+              <div><h4 class="font-semibold">Innovation</h4><p class="text-sm text-gray-600">Embracing better ways of doing business</p></div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">3</div>
+              <div><h4 class="font-semibold">Impact</h4><p class="text-sm text-gray-600">Creating real value for people and communities</p></div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">4</div>
+              <div><h4 class="font-semibold">Excellence</h4><p class="text-sm text-gray-600">High standards in everything we deliver</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+        <p class="text-gray-600 text-lg">We are ready to discuss partnerships, projects and opportunities.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+          <h3 class="font-display font-bold text-xl mb-6">Contact Information</h3>
+          <div class="space-y-5">
+            <div class="flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Address</p>
+                <p class="text-gray-600 text-sm">Accra, Ghana</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Phone / WhatsApp</p>
+                <a href="tel:+233537832845" class="text-blue-600 text-sm font-medium hover:underline">053 783 2845</a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Email</p>
+                <a href="mailto:info@ebenandco.com" class="text-blue-600 text-sm font-medium hover:underline">info@ebenandco.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-gray-100">
+            <a href="https://wa.me/233537832845" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <form class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 space-y-5" onsubmit="event.preventDefault(); alert('Thank you! We will respond shortly.'); this.reset();">
+          <div>
+            <label class="block text-sm font-medium mb-1.5">Full Name</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1.5">Email or Phone</label>
+            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1.5">Regarding</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none">
+              <option>General Inquiry</option>
+              <option>Vision Tech Ghana</option>
+              <option>Eben Agro</option>
+              <option>Skyline Construction</option>
+              <option>Sonic Goods</option>
+              <option>Partnership / Investment</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1.5">Message</label>
+            <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3.5 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl logo-mark flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 40 40" fill="none">
+                <path d="M8 28V12h8.5c4.2 0 7 2.3 7 6s-2.8 6-7 6H14v4H8zm6-9h2.2c1.6 0 2.5-.8 2.5-2s-.9-2-2.5-2H14v4z" fill="currentColor"/>
+                <path d="M28 12h6v4h-4v3h3.5v4H30v5h-2V12z" fill="currentColor" opacity="0.9"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-display font-bold">Eben & Co.</span>
+              <span class="block text-[10px] text-blue-400 tracking-widest uppercase">Limited</span>
+            </div>
+          </div>
+          <p class="text-slate-400 text-sm">Building Africa’s future through diversified businesses based in Ghana.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Companies</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="vision-tech.html" class="hover:text-white">Vision Tech Ghana</a></li>
+            <li><a href="eben-agro.html" class="hover:text-white">Eben Agro</a></li>
+            <li><a href="skyline-construction.html" class="hover:text-white">Skyline Construction</a></li>
+            <li><a href="sonic-goods.html" class="hover:text-white">Sonic Goods</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Group</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#about" class="hover:text-white">About Us</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>Accra, Ghana</li>
+            <li><a href="tel:+233537832845" class="hover:text-white">053 783 2845</a></li>
+            <li><a href="mailto:info@ebenandco.com" class="hover:text-white">info@ebenandco.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between gap-4 text-sm text-slate-500">
+        <p>© 2026 Eben & Co. Limited. All rights reserved.</p>
+        <p>Proudly Ghanaian 🇬🇭</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/233537832845" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById('menu-toggle')?.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(n) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5500);
+  </script>
+</body>
+</html>
